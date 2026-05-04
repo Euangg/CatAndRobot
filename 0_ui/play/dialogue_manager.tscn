@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dotgf2t16s2ob"]
+
+[ext_resource type="Script" uid="uid://baxe570y8nmj" path="res://0_ui/play/dialogue_manager.gd" id="1_tgn4m"]
+[ext_resource type="PackedScene" uid="uid://blexl0gay5k0q" path="res://0_ui/play/scene/1/1-1.tscn" id="2_srvfy"]
+[ext_resource type="PackedScene" uid="uid://bweff716n4ujh" path="res://0_character/cat.tscn" id="3_srvfy"]
+[ext_resource type="PackedScene" uid="uid://b86t4jc8p013d" path="res://0_character/robot.tscn" id="4_nah2v"]
+
+[node name="DialogueManager" type="Control" unique_id=1650605372]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_tgn4m")
+
+[node name="NodeScene" type="Control" parent="." unique_id=757852134]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="11" parent="NodeScene" unique_id=124081438 instance=ExtResource("2_srvfy")]
+layout_mode = 1
+
+[node name="Cat" parent="." unique_id=1998197758 instance=ExtResource("3_srvfy")]
+visible = false
+layout_mode = 1
+
+[node name="Robot" parent="." unique_id=1092460937 instance=ExtResource("4_nah2v")]
+visible = false
+layout_mode = 1
+
+[node name="NodeDbox" type="Control" parent="." unique_id=936785079]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

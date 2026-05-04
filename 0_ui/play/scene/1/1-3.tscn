@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://vwbhbyb8qt5a"]
+
+[ext_resource type="Texture2D" uid="uid://jj0mwlw60xku" path="res://0_ui/play/scene/1/3.png" id="1_lpl3p"]
+
+[node name="13" type="Control" unique_id=124081438]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1199831652]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lpl3p")
+expand_mode = 1

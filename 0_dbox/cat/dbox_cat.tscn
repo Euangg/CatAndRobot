@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c6u7ctk1e2gj0"]
+
+[ext_resource type="Script" uid="uid://cti4o0cfu0v8d" path="res://0_dbox/dbox.gd" id="1_lv4n1"]
+[ext_resource type="Texture2D" uid="uid://dg8tucqlrfwcd" path="res://0_dbox/cat/小猫 对话框.png" id="2_67x3t"]
+[ext_resource type="Texture2D" uid="uid://lq358w234b71" path="res://0_dbox/cat/小猫 名称.png" id="3_4kiay"]
+[ext_resource type="Texture2D" uid="uid://cgrastukc17g4" path="res://0_dbox/cat/小猫 对话框爪印.png" id="4_tjt8h"]
+
+[node name="DboxCat" type="Control" unique_id=854326470]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lv4n1")
+metadata/_custom_type_script = "uid://cti4o0cfu0v8d"
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1440426896]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_67x3t")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=607277277]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4kiay")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="." unique_id=622186299]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_tjt8h")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=805202999]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 282.0
+offset_top = 877.0
+offset_right = 1640.0
+offset_bottom = 1017.0
+
+[node name="Name" type="Label" parent="." unique_id=1548713752]
+layout_mode = 0
+offset_left = 1500.0
+offset_top = 777.0
+offset_right = 1600.0
+offset_bottom = 846.0
+theme_override_font_sizes/font_size = 50
+text = "青芽"

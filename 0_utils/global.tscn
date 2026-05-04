@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ciitab62mntpe"]
+
+[ext_resource type="Script" uid="uid://oomfhfgxy1hj" path="res://0_utils/global.gd" id="1_fleak"]
+
+[node name="Global" type="Node" unique_id=847193090]
+script = ExtResource("1_fleak")
+
+[node name="Bgm" type="AudioStreamPlayer" parent="." unique_id=1419279955]
+unique_name_in_owner = true
+
+[node name="Sfx" type="Node" parent="." unique_id=2145980563]
+unique_name_in_owner = true
+
+[connection signal="finished" from="Bgm" to="." method="_on_bgm_finished"]
