@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cc4bf7ha1jge5"]
+
+[ext_resource type="Texture2D" uid="uid://lmql61438h3o" path="res://0_ui/play/scene/4/场景4-1.png" id="1_rbc2d"]
+
+[node name="41" type="Control" unique_id=124081438]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1199831652]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rbc2d")
+expand_mode = 1
