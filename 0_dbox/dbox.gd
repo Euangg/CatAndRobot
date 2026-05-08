@@ -11,7 +11,7 @@ signal end
 var process:Array[Callable]
 var order_call=-1
 
-var arr_text:PackedStringArray=["[测试无内容/sadasdasdas]","[测试无内容2222/sadasdasdas]"]
+var arr_text:PackedStringArray=["adf","adsfad"]
 
 var order_text=0
 var num_characters_per_second=20
@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 					is_stopped=true
 					amount_characters_should_shown=%Label.text.length()
 					diff=0
-				"】":
+				"^":
 					order_call+=1
 					if order_call<process.size():process[order_call].call()
 					else:print("call越界",",size:",process.size(),",order:",order_call)
@@ -76,6 +76,8 @@ func try_load_next_line():
 		order_text+=1
 		load_text()
 		on_load_next_line()
-	else:end.emit()
+	else:
+		end.emit()
+		print("end")
 func on_one_line_end():if Global.auto_play:Global.set_auto_play_temp_pause()
 func on_load_next_line():pass

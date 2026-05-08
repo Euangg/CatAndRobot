@@ -1,6 +1,52 @@
 [gd_scene format=3 uid="uid://d3k8trol6pf0r"]
 
 [ext_resource type="Texture2D" uid="uid://b8qnw6ebmvn7u" path="res://0_ui/play/scene/3/场景3-1.png" id="1_an5ln"]
+[ext_resource type="Script" uid="uid://bowcw63v2x085" path="res://0_ui/play/scene/3/3_1.gd" id="1_tqf0p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an5ln"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tqf0p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8p7en"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84awk"]
+
+[sub_resource type="Animation" id="Animation_tqf0p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8p7en"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.59),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_84awk"]
+_data = {
+&"RESET": SubResource("Animation_tqf0p"),
+&"idle": SubResource("Animation_8p7en")
+}
 
 [node name="31" type="Control" unique_id=124081438]
 layout_mode = 3
@@ -9,6 +55,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_tqf0p")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1199831652]
 layout_mode = 1
@@ -19,3 +67,34 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_an5ln")
 expand_mode = 1
+
+[node name="Button" type="Button" parent="." unique_id=865576746]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 771.0
+offset_top = 395.0
+offset_right = 1409.0
+offset_bottom = 742.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_an5ln")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tqf0p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8p7en")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_84awk")
+
+[node name="Timer" type="Timer" parent="." unique_id=1626693114]
+unique_name_in_owner = true
+process_mode = 3
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=743437359]
+libraries/ = SubResource("AnimationLibrary_84awk")
+autoplay = &"idle"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1949159242]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 257.0
+offset_right = 390.0
+offset_bottom = 297.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

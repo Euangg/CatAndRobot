@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://b4078rvnvfsel"]
 
 [ext_resource type="Script" uid="uid://cti4o0cfu0v8d" path="res://0_dbox/dbox.gd" id="1_8t84q"]
-[ext_resource type="Texture2D" uid="uid://br2civxfmxq05" path="res://0_dbox/robot/机器人 对话框.png" id="2_co4s7"]
 
 [node name="Dbox" type="Control" unique_id=78217317]
 layout_mode = 3
@@ -12,14 +11,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8t84q")
 
-[node name="TextureRect3" type="TextureRect" parent="." unique_id=678046748]
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1579990435]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_co4s7")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="." unique_id=34706376]

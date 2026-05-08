@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwhudyv0pisu7"
+path="res://.godot/imported/猫开心 0.5s.mp3-88744e4f9566c0cb19e572ae71d9a434.mp3str"
+
+[deps]
+
+source_file="res://sound/猫开心 0.5s.mp3"
+dest_files=["res://.godot/imported/猫开心 0.5s.mp3-88744e4f9566c0cb19e572ae71d9a434.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
