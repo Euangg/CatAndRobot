@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://baxe570y8nmj" path="res://0_ui/play/dialogue_manager.gd" id="1_tgn4m"]
 [ext_resource type="PackedScene" uid="uid://blexl0gay5k0q" path="res://0_ui/play/scene/1/1-1.tscn" id="2_srvfy"]
-[ext_resource type="PackedScene" uid="uid://bweff716n4ujh" path="res://0_character/cat.tscn" id="3_srvfy"]
-[ext_resource type="PackedScene" uid="uid://b86t4jc8p013d" path="res://0_character/robot.tscn" id="4_nah2v"]
+[ext_resource type="PackedScene" uid="uid://bweff716n4ujh" path="res://0_character/cat/cat.tscn" id="3_srvfy"]
+[ext_resource type="PackedScene" uid="uid://b86t4jc8p013d" path="res://0_character/robot/robot.tscn" id="4_nah2v"]
 
 [node name="DialogueManager" type="Control" unique_id=1650605372]
 layout_mode = 3

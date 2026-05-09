@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dq0x8wyjp1ner"]
+
+[ext_resource type="Script" uid="uid://cc5tlosvqy4bx" path="res://0_dbox/retry/retry.gd" id="1_13gyy"]
+
+[node name="Retry" type="Control" unique_id=267194357]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_13gyy")
+
+[node name="Button" type="Button" parent="." unique_id=7531926]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "任务失败，重新开始"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

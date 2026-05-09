@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://b86t4jc8p013d"]
+
+[ext_resource type="Script" uid="uid://bm70u3vpy0wbu" path="res://0_character/character.gd" id="1_7vofc"]
+[ext_resource type="Texture2D" uid="uid://cs13lef2rjqx8" path="res://0_character/robot/R_站立1_1.png" id="2_3tm8n"]
+[ext_resource type="Texture2D" uid="uid://besrr0800ow4f" path="res://0_character/robot/R_怀抱撸猫.png" id="3_crefg"]
+[ext_resource type="Texture2D" uid="uid://hkkwmyo2cf8x" path="res://0_character/robot/R_怀抱青芽1.png" id="3_ej2gi"]
+[ext_resource type="Texture2D" uid="uid://cgt8ct1v4y0r3" path="res://0_character/robot/R_站立1_2.png" id="3_qjr1p"]
+[ext_resource type="Texture2D" uid="uid://bdswf5vnteff5" path="res://0_character/robot/R_扫描1_1.png" id="3_yi6np"]
+[ext_resource type="Texture2D" uid="uid://dht3efx8m4kpp" path="res://0_character/robot/R_扫描1_2.png" id="4_ej2gi"]
+[ext_resource type="Texture2D" uid="uid://c1r2q8utjgftc" path="res://0_character/robot/R_怀抱青芽2.png" id="4_nkx5k"]
+
+[sub_resource type="Animation" id="Animation_moquk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7vofc"]
+resource_name = "l"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-704, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_epmbg"]
+resource_name = "m"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w2v3w"]
+resource_name = "r"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ytdo8"]
+_data = {
+&"RESET": SubResource("Animation_moquk"),
+&"l": SubResource("Animation_7vofc"),
+&"m": SubResource("Animation_epmbg"),
+&"r": SubResource("Animation_w2v3w")
+}
+
+[sub_resource type="Animation" id="Animation_qjr1p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_3tm8n")]
+}
+
+[sub_resource type="Animation" id="Animation_fhnf2"]
+resource_name = "怀抱撸猫"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_crefg")]
+}
+
+[sub_resource type="Animation" id="Animation_ej2gi"]
+resource_name = "怀抱青芽1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_ej2gi")]
+}
+
+[sub_resource type="Animation" id="Animation_crefg"]
+resource_name = "怀抱青芽2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_nkx5k")]
+}
+
+[sub_resource type="Animation" id="Animation_c705d"]
+resource_name = "扫描1_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_yi6np")]
+}
+
+[sub_resource type="Animation" id="Animation_54pnk"]
+resource_name = "扫描1_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_ej2gi")]
+}
+
+[sub_resource type="Animation" id="Animation_yi6np"]
+resource_name = "站立1_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_3tm8n")]
+}
+
+[sub_resource type="Animation" id="Animation_nkx5k"]
+resource_name = "站立1_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_qjr1p")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ej2gi"]
+_data = {
+&"RESET": SubResource("Animation_qjr1p"),
+&"怀抱撸猫": SubResource("Animation_fhnf2"),
+&"怀抱青芽1": SubResource("Animation_ej2gi"),
+&"怀抱青芽2": SubResource("Animation_crefg"),
+&"扫描1_1": SubResource("Animation_c705d"),
+&"扫描1_2": SubResource("Animation_54pnk"),
+&"站立1_1": SubResource("Animation_yi6np"),
+&"站立1_2": SubResource("Animation_nkx5k")
+}
+
+[node name="Robot" type="Control" unique_id=1998197758]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vofc")
+
+[node name="Graphic" type="Control" parent="." unique_id=1915753418]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Graphic" unique_id=804461611]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3tm8n")
+expand_mode = 1
+
+[node name="AnimationPlayerPos" type="AnimationPlayer" parent="." unique_id=1526660446]
+libraries/ = SubResource("AnimationLibrary_ytdo8")
+
+[node name="AnimationPlayerFace" type="AnimationPlayer" parent="." unique_id=1512168777]
+libraries/ = SubResource("AnimationLibrary_ej2gi")
