@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bm70u3vpy0wbu" path="res://0_character/character.gd" id="1_7vofc"]
 [ext_resource type="Texture2D" uid="uid://cs13lef2rjqx8" path="res://0_character/robot/R_站立1_1.png" id="2_3tm8n"]
+[ext_resource type="Texture2D" uid="uid://dipyuuttrou5g" path="res://0_character/robot/R_半跪1.png" id="3_c705d"]
 [ext_resource type="Texture2D" uid="uid://besrr0800ow4f" path="res://0_character/robot/R_怀抱撸猫.png" id="3_crefg"]
 [ext_resource type="Texture2D" uid="uid://hkkwmyo2cf8x" path="res://0_character/robot/R_怀抱青芽1.png" id="3_ej2gi"]
 [ext_resource type="Texture2D" uid="uid://cgt8ct1v4y0r3" path="res://0_character/robot/R_站立1_2.png" id="3_qjr1p"]
@@ -90,6 +91,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_3tm8n")]
+}
+
+[sub_resource type="Animation" id="Animation_4jja2"]
+resource_name = "半跪1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_c705d")]
 }
 
 [sub_resource type="Animation" id="Animation_fhnf2"]
@@ -200,6 +216,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ej2gi"]
 _data = {
 &"RESET": SubResource("Animation_qjr1p"),
+&"半跪1": SubResource("Animation_4jja2"),
 &"怀抱撸猫": SubResource("Animation_fhnf2"),
 &"怀抱青芽1": SubResource("Animation_ej2gi"),
 &"怀抱青芽2": SubResource("Animation_crefg"),

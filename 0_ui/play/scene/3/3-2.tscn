@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://d3k8trol6pf0r"]
+[gd_scene format=3 uid="uid://cy8tl0na3nwdh"]
 
-[ext_resource type="Texture2D" uid="uid://b8qnw6ebmvn7u" path="res://0_ui/play/scene/3/场景3-1.png" id="1_an5ln"]
-[ext_resource type="Script" uid="uid://bowcw63v2x085" path="res://0_ui/play/scene/3/3_1.gd" id="1_tqf0p"]
-[ext_resource type="Texture2D" uid="uid://defvc1ur42rdv" path="res://0_ui/play/scene/3/场景3-3.png" id="3_8p7en"]
+[ext_resource type="Script" uid="uid://bowcw63v2x085" path="res://0_ui/play/scene/3/3_1.gd" id="1_f6rpb"]
+[ext_resource type="Texture2D" uid="uid://6qcar8upu71x" path="res://0_ui/play/scene/3/场景3-2.png" id="2_f6rpb"]
+[ext_resource type="Texture2D" uid="uid://defvc1ur42rdv" path="res://0_ui/play/scene/3/场景3-3.png" id="3_qklc0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an5ln"]
 
@@ -48,7 +48,7 @@ _data = {
 &"event": SubResource("Animation_84awk")
 }
 
-[node name="31" type="Control" unique_id=124081438]
+[node name="32" type="Control" unique_id=124081438]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +56,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_tqf0p")
+script = ExtResource("1_f6rpb")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1199831652]
 layout_mode = 1
@@ -65,7 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_an5ln")
+texture = ExtResource("2_f6rpb")
 expand_mode = 1
 
 [node name="TextureCover" type="TextureRect" parent="." unique_id=1844780087]
@@ -79,7 +79,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("3_8p7en")
+texture = ExtResource("3_qklc0")
 expand_mode = 1
 
 [node name="Button" type="Button" parent="." unique_id=865576746]

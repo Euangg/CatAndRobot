@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpyu8rjhlcnva"
-path="res://.godot/imported/小猫 立绘.png-c93751d1d1017a3d383f7f2d72cea8ee.ctex"
+uid="uid://6qcar8upu71x"
+path="res://.godot/imported/场景3-2.png-73641d85aa8884d0b16ade5ad9a6e3f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0_character/小猫 立绘.png"
-dest_files=["res://.godot/imported/小猫 立绘.png-c93751d1d1017a3d383f7f2d72cea8ee.ctex"]
+source_file="res://0_ui/play/scene/3/场景3-2.png"
+dest_files=["res://.godot/imported/场景3-2.png-73641d85aa8884d0b16ade5ad9a6e3f7.ctex"]
 
 [params]
 

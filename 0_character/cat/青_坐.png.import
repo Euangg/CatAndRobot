@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7efv0ajx3gua"
-path="res://.godot/imported/机器人 立绘.png-93e1ed973c3d8802993eeb6ccfe52299.ctex"
+uid="uid://gckguu2yfrvi"
+path="res://.godot/imported/青_坐.png-40fa0b892e5242d89f85c049acf86412.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0_character/机器人 立绘.png"
-dest_files=["res://.godot/imported/机器人 立绘.png-93e1ed973c3d8802993eeb6ccfe52299.ctex"]
+source_file="res://0_character/cat/青_坐.png"
+dest_files=["res://.godot/imported/青_坐.png-40fa0b892e5242d89f85c049acf86412.ctex"]
 
 [params]
 

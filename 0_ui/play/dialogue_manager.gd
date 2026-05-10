@@ -15,6 +15,8 @@ const SFX_扫描 = preload("uid://bq0ch7tjexdr6")
 const SFX_警告 = preload("uid://uvdet07f53t0")
 const SFX_机关 = preload("uid://b32d7v3ajbofo")
 const SFX_枪声 = preload("uid://3eplp0slljbh")
+const SFX_拧脖 = preload("uid://bcrxiq7umawlh")
+const SFX_提示 = preload("uid://c2hl7i0hay3eh")
 
 const SCENE_BLACK = preload("uid://08mpfdx7m2ro")
 const SCENE_1_1 = preload("uid://blexl0gay5k0q")
@@ -24,6 +26,8 @@ const SCENE_2_1 = preload("uid://epdigjtk6bum")
 const SCENE_2_2 = preload("uid://bo1w76iqsl66y")
 const SCENE_2_3 = preload("uid://gf1domc3hphm")
 const SCENE_3_1 = preload("uid://d3k8trol6pf0r")
+const SCENE_3_2 = preload("uid://cy8tl0na3nwdh")
+
 const SCENE_4_1 = preload("uid://cc4bf7ha1jge5")
 const SCENE_5_1 = preload("uid://ul8b5cb6oqid")
 const SCENE_5_2 = preload("uid://bu2fmx76uvarc")
@@ -37,131 +41,20 @@ func hide_all_characters():
 	art_cat.hide()
 	art_robot.hide()
 
-var test:Array=[
-	"R:【场景-黑屏幕】正在重启自检系统",
-	"R:[滋滋滋…]",
-	"R:重启成功",
-	"R:【音效-警告】[警告！运动系统损坏度64%.../扫描组件不可使用.../通讯模块无响应…]",
-	"R:[滋滋滋.../无法激活武器系统…]",
-	"R:[当前安全程度：低]",
-
-	"R中-站立1_1:【场景-场景1_1】[视觉系统已连接]",
-	"R中-站立1_1:青芽。",
-	"R中-站立1_1:[检测到目标生物前肢软组织损伤，活动关节未受影响，启动伤口处理预案]",
-	"R中-站立1_1:【音效-警告】[警告！任务优先级被改动，正在查找原因]",
-	"R中-站立1_1:[检测到空气含氧量为4.7%，目标生物预计存活时间为4分32秒]",
-	"R中-站立1_1:[启动应急补氧预案]",
-	"R中-站立1_1:[查找中断，记录此次未知变量]",
-	"R中-站立1_1:[目标生物生理状态已恢复82%]",
-	"青中-站立3,R中-站立1_1:【音效-猫_担忧】喵~",
-	"R中-站立1_1,青中-站立3:[目标生物耳朵压低，尾部静止，处于负面生理状态.../执行环境探索任务]",
-	"R中-站立1_1,青中-站立3:[未发现异常，未发现可用材料]",
-	"R中-站立1_1,青中-站立3:[目标：向外探索]",
-
-	"选:向左探索+0^向右探索+12",
-	"R中-站立1_1,青中-站立3:青芽，跟随。",
-	"青中-开心1_1,R中-站立1_1:【音效-猫_开心】喵~",
-	"R中-站立1_2,青中-开心2_2:[目标生物步幅频率增加13%，尾部摆动频率增加…/停止分析]",
-	"R中-站立1_2,青中-开心2_2:[正在分析环境结构，当前深度-23485米]",
-	"R中-站立1_2,青中-开心2_2:[前方无可通行路线，未发现可用材料，即将返回路线]",
-	"R中-站立1_2,青中-开心2_2:[当前线程被占用。痛觉信号增加7.2%]",
-	"R中-站立1_2,青中-开心2_2:青芽，上来。",
-	"青中-开心2_2,R中-站立1_2:【音效-猫_开心】喵~",
-	"R中-怀抱青芽2:[路线返回。目标生物尾部持续摆动，呼吸频率高于任务基线19%，该状态未影响任务执行]",
-	"R中-怀抱青芽2:[正在检查日志：任务执行期间检测到目标生物处于危险状态，默认程序中断，启动目标生物应急保护预案]",
-	"R中-怀抱青芽2:[未检测到环境异常，单元失衡，调取单元自保预案失败…]",
-	"R中-怀抱青芽2:[自检结束，未找到未知变量]",
-
-	"R中-站立1_1,青中-开心1_2:[前方无可通行路线，发现精炼材料，正在修复扫描组件]",
-	"R中-站立1_1,青中-开心1_2:[修复进度24%，材料不足，进程终止]",
-	"R中-扫描1_2,青中-开心2_2:【音效-扫描】[扫描系统已连接，正在扫描]",
-	"R中-扫描1_2》站立1_2,青中-开心2_2:[发现可疑地点，常规透视无效，正在前往]",
-	"R中-站立1_2,青中-开心2_2:青芽，跟随。",
-	"青中-开心2_2,R中-站立1_2:【音效-猫_开心】喵~",
-
-	":【场景-场景1_2】",
-	"R中-扫描1_1,青中-开心1_1:【音效-扫描】[发现人工建筑，表面浮雕匹配,“腾云教会”标识，匹配度97.9%]",
-	"R中-扫描1_1,青中-开心1_1:[建筑顶部探测到隐藏触发装置，需生物电信号激活]",
-	"R中-扫描1_1》站立1_1,青中-开心1_1:[利用猫咪攀爬至顶部为唯一解，正在模拟路线，预计痛觉信号增加27%]",
-	"R中-站立1_1,青中-开心1_1:青芽。",
-	"青中-开心1_1,R中-站立1_1:【音效-猫_开心】喵~",
-	"R中-站立1_1,青中-开心1_1:听我指令爬到建筑顶部。",
-	"青中-开心1_1,R中-站立1_1:【音效-猫_开心】喵~",
-	"R中-站立1_1:…在此处退至岩石边缘，全力向前跑动起跳…",
-	"R中-站立1_1:按住平台不松。",
-
-	"R中-站立1_1:【场景-场景1_3】【音效-开门】",
-	"R中-站立1_1:[暂无危险，内部信息未知，携带目标生物可提升生存概率]",
-	"R中-站立1_1:青芽，下来",
-	"青,R中-站立1_1:【音效-猫_开心】喵~",
-	"R中-怀抱青芽1:前进。",
-	"R中-怀抱青芽1:【音效-猫_开心】喵~",
-	"R中-怀抱青芽1:[内部日志：腾云邪教，信条是“文明即原罪，存在即痛苦”，信徒极度癫狂]",
-	"R中-怀抱青芽1:[当前安全程度：极低]",
-	"R中-怀抱青芽1:[…未向目标生物播报信息，该信息对任务执行不产生优化效果]",
-	
-	":【场景-场景2_1】",
-	"R中-站立1_1:[扫描组件耐久剩余8.2%，视觉判断已达最大深度]",
-	"R中-站立1_1:[无法获得建筑全貌信息]",
-	"R中-站立1_1:[检测到目标生物超出安全距离]",
-	"R中-站立1_1:青芽，回来。",
-	"青中-开心1_1,R中-站立1_1:【音效-猫_开心】喵~",
-	"R中-站立1_1,青中-开心1_1:[观测到正面墙壁修复痕迹，修复区域边缘未保持整齐，陷阱存在概率：高]",
-	"R中-站立1_1,青中-开心1_1:[启用扫描功能]",
-
-	"选:先开启红外扫描功能和反探查功能（低能耗）【参数-tech,=1】+0^先开启深度探查功能（高能耗）+4",##第66行
-	"R中-站立1_1》扫描1_1,青中-开心1_1:【音效-扫描】[启动多频扫描]",
-	"R中-扫描1_1,青中-开心1_1:[发现路线尽头左侧遮挡区存在陷阱，路线前方存在隐藏陷阱，具体范围未知]",
-	"R中-扫描1_1,青中-开心1_1:【音效-扫描】[未发现其他陷阱存在可能，开启深度探查功能]",
-	"R中-扫描1_1》站立1_1,青中-开心1_1:[具体范围明确，扫描组件过载报废]+3",
-
-	"R中-站立1_1》扫描1_1,青中-开心1_1:【音效-扫描】[开启深度探查功能]",
-	"R中-扫描1_1,青中-开心1_1:[发现路线前方存在隐藏陷阱，已获取具体信息]",
-	"R中-扫描1_1》站立1_1,青中-开心1_1:[扫描组件过载报废，未探测其他陷阱存在]",
-
-	"R中-站立1_1,青中-开心1_1:[陷阱分布模型已建立，经计算，只有目标生物可以通过危险区域]",
-	"R中-站立1_1,青中-开心1_1:[再次计算，无其他解]",
-	"R中-站立1_1,青中-开心1_1:青芽，听指令。【判定】",##当tech==1时，场景切换至场景2_2，否则切换至场景2_3
-	"青中-开心1_1,R中-站立1_1:【音效-猫_开心】喵~",
-
-	"选:贴着右侧墙边行进+0^从正中间前进+4",
-	"R中-站立1_1,青中-开心1_1:右侧贴墙压低身体，快速通过",
-	"青中-开心1_1,R中-站立1_1:【音效-猫_开心】喵~",
-	"R中-站立1_1:[目标生物通过第一段陷阱]",
-	"R中-站立1_1:中转，冲刺。+3",
-
-	"R中-站立1_1,青中-开心1_1:从正中间贴地前行，快速通过",
-	"青中-开心1_1,R中-站立1_1:【音效-猫_开心】喵~",
-	":【场景-黑屏幕】【音效-枪声】",
-	"回:64",
-
-	"选:向前跳跃+0^趴下前进+3",
-	"R中-站立1_1:跳跃。",
-	"青,R中-站立1_1:【音效-猫_开心】喵~",
-	"R中-站立1_1:[目标生物通过第二段陷阱]+3",
-
-	"R中-站立1_1:压低身体",
-	"青,R中-站立1_1:【音效-猫_开心】喵~",
-	":【场景-黑屏幕】【音效-枪声】",
-	"回:64",
-
-	"R中-站立1_1:右上方有拉环，起跳拉下它。",
-	"青,R中-站立1_1:【音效-猫_开心】喵~",
-	",R中-站立1_1:【音效-机关】",
-	"R中-站立1_1:【场景-场景2_1】[陷阱威胁消除，路线安全，正在通过]",
-	"青,R中-站立1_1:【音效-猫_开心】喵~",
-	"青,R中-怀抱撸猫:【音效-猫_满足】咕噜~",
-	"R中-怀抱撸猫:[警告！任务优先级被改动，未定位到未知变量]",
-	"R中-怀抱撸猫:[内部日志调用：目标生物完成任务后需要抚摸]",
-
-]
-
+const Script_1 = preload("uid://j73gbj874m7i")
+const Script_Test = preload("uid://cp3ptlodoo5b1")
+const Script_4_2 = preload("uid://degu67hcd8ovc")
+const Script_4_3 = preload("uid://joxu1f6d35kb")
+var current_script:Script=Script_1
 var order_curtain:int=0
 func clear_dialogue_box():for d in %NodeDbox.get_children():d.queue_free()
-func load_current_curtain():line_to_curtain(test[order_curtain])
+func switch_script(script:Script):
+	current_script=script
+	order_curtain=-1
+func load_current_curtain():line_to_curtain(current_script.content[order_curtain])
 func load_next_curtain(offset:int=0):
 	order_curtain+=1+offset
-	if order_curtain>=test.size():return
+	if order_curtain>=current_script.content.size():return
 	load_current_curtain()
 
 const DBOX = preload("uid://b4078rvnvfsel")
@@ -265,7 +158,7 @@ func line_to_curtain(line:String):
 										_:sat+=int(parameter_parameter[1])
 									print(sat)
 								)
-								"tech":selection.select_2.connect(func():
+								"tech":selection.select_1.connect(func():
 									tech+=int(parameter_parameter[1])
 									match parameter_parameter[1][0]:
 										"=":tech=int(parameter_parameter[1].erase(0,1))
@@ -284,11 +177,15 @@ func line_to_curtain(line:String):
 						"参数":
 							match parameter_parameter[0]:
 								"sat":selection.select_2.connect(func():
-									sat+=int(parameter_parameter[1])
+									match parameter_parameter[1][0]:
+										"=":sat=int(parameter_parameter[1].erase(0,1))
+										_:sat+=int(parameter_parameter[1])
 									print("sat:",sat)
 								)
 								"tech":selection.select_2.connect(func():
-									tech+=int(parameter_parameter[1])
+									match parameter_parameter[1][0]:
+										"=":tech=int(parameter_parameter[1].erase(0,1))
+										_:tech+=int(parameter_parameter[1])
 									print("tech:",tech)
 								)
 								_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
@@ -342,6 +239,7 @@ func line_to_curtain(line:String):
 						"场景2_2":dia.process.push_back(func():switch_back_scene(SCENE_2_2))
 						"场景2_3":dia.process.push_back(func():switch_back_scene(SCENE_2_3))
 						"场景3_1":dia.process.push_back(func():switch_back_scene(SCENE_3_1))
+						"场景3_2":dia.process.push_back(func():switch_back_scene(SCENE_3_2))
 						"场景4_1":dia.process.push_back(func():switch_back_scene(SCENE_4_1))
 						"场景5_1":dia.process.push_back(func():switch_back_scene(SCENE_5_1))
 						"场景5_2":dia.process.push_back(func():switch_back_scene(SCENE_5_2))
@@ -352,16 +250,37 @@ func line_to_curtain(line:String):
 					match cmd_parameter[1]:
 						"猫_担忧":dia.process.push_back(func():Global.play_sfx(SFX_猫_担忧))
 						"猫_开心":dia.process.push_back(func():Global.play_sfx(SFX_猫_开心))
+						"猫_尖叫":dia.process.push_back(func():Global.play_sfx(SFX_猫_尖叫))
+						"猫_满足":dia.process.push_back(func():Global.play_sfx(SFX_猫_满足))
 						"警告":dia.process.push_back(func():Global.play_sfx(SFX_警告))
 						"开门":dia.process.push_back(func():Global.play_sfx(SFX_开门))
 						"扫描":dia.process.push_back(func():Global.play_sfx(SFX_扫描))
 						"机关":dia.process.push_back(func():Global.play_sfx(SFX_机关))
 						"枪声":dia.process.push_back(func():Global.play_sfx(SFX_枪声))
+						"拧脖":dia.process.push_back(func():Global.play_sfx(SFX_拧脖))
+						"提示":dia.process.push_back(func():Global.play_sfx(SFX_提示))
+						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
 				"判定":
-					dia.process.push_back(func():
-						if sat==1:switch_back_scene(SCENE_2_1)
-						else:switch_back_scene(SCENE_2_2)
-						)
+					match cmd_parameter[1]:
+						"1":
+							dia.process.push_back(func():
+								if tech==1:switch_back_scene(SCENE_2_2)
+								else:switch_back_scene(SCENE_2_3)
+								)
+						"2":
+							dia.process.push_back(func():
+								if sat==1:switch_script(Script_4_3)#sat=1时，跳转至剧本4_3，否则跳转至剧本4_2
+								else:switch_script(Script_4_2))
+				"事件":
+					match cmd_parameter[1]:
+						"1":
+							dia.process.push_back(func():
+								Global.can_touch=true
+								print("can_touch=true"))
+						"2":
+							dia.process.push_back(func():
+								Global.can_touch=false
+								print("can_touch=false"))
 				_:print("未知指令:",cmd_parameter[0])
 
 		dia.arr_text=text_offset[0].split("//")
