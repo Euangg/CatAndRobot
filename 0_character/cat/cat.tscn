@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bm70u3vpy0wbu" path="res://0_character/character.gd" id="1_6mlm7"]
 [ext_resource type="Texture2D" uid="uid://du88xraxihexi" path="res://0_character/cat/青_开心1_1.png" id="2_wjkfo"]
+[ext_resource type="Texture2D" uid="uid://dsqtooo4fm0ts" path="res://0_character/cat/青_后退.png" id="3_7yct7"]
 [ext_resource type="Texture2D" uid="uid://cc6h1gxaml0uc" path="res://0_character/cat/青_开心1_2.png" id="3_ld3s5"]
 [ext_resource type="Texture2D" uid="uid://gckguu2yfrvi" path="res://0_character/cat/青_坐.png" id="3_txdh0"]
 [ext_resource type="Texture2D" uid="uid://sx8jrmrip4au" path="res://0_character/cat/青_开心2_2.png" id="4_trnt5"]
@@ -9,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://c5acexvdo61yd" path="res://0_character/cat/青_惊吓.png" id="5_txdh0"]
 [ext_resource type="Texture2D" uid="uid://dtix82l2w7l24" path="res://0_character/cat/青_立正.png" id="6_7yct7"]
 [ext_resource type="Texture2D" uid="uid://d033611s52ntc" path="res://0_character/cat/青_站立3.png" id="6_ld3s5"]
+[ext_resource type="Texture2D" uid="uid://wxddo1alfw0x" path="res://0_character/cat/青_走动1_1.png" id="11_ser6u"]
+[ext_resource type="Texture2D" uid="uid://dptt5v7skan34" path="res://0_character/cat/青_走动1_2.png" id="12_l4kfw"]
 
 [sub_resource type="Animation" id="Animation_2ht5p"]
 length = 0.001
@@ -91,6 +94,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_wjkfo")]
+}
+
+[sub_resource type="Animation" id="Animation_ls2nj"]
+resource_name = "后退"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7yct7")]
 }
 
 [sub_resource type="Animation" id="Animation_sn42k"]
@@ -213,9 +231,40 @@ tracks/0/keys = {
 "values": [ExtResource("6_ld3s5")]
 }
 
+[sub_resource type="Animation" id="Animation_5lwjd"]
+resource_name = "走动1_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_ser6u")]
+}
+
+[sub_resource type="Animation" id="Animation_kdccx"]
+resource_name = "走动1_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_l4kfw")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b8rpg"]
 _data = {
 &"RESET": SubResource("Animation_txdh0"),
+&"后退": SubResource("Animation_ls2nj"),
 &"坐": SubResource("Animation_sn42k"),
 &"开心1_1": SubResource("Animation_7yct7"),
 &"开心1_2": SubResource("Animation_ijams"),
@@ -223,7 +272,9 @@ _data = {
 &"惊吓": SubResource("Animation_b8rpg"),
 &"立正": SubResource("Animation_wfhp2"),
 &"站立1": SubResource("Animation_l4kfw"),
-&"站立3": SubResource("Animation_trnt5")
+&"站立3": SubResource("Animation_trnt5"),
+&"走动1_1": SubResource("Animation_5lwjd"),
+&"走动1_2": SubResource("Animation_kdccx")
 }
 
 [node name="Cat" type="Control" unique_id=1998197758]

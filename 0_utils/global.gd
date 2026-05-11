@@ -12,6 +12,7 @@ func play_sfx(stream:AudioStream):
 	sfx.stream=stream
 	%Sfx.add_child(sfx)
 
+var is_stopped:bool=false
 var auto_play:bool=false
 var speed_auto_play=11
 var auto_play_temp_pause:bool=false

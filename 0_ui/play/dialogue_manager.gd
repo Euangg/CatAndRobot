@@ -11,6 +11,7 @@ const SFX_猫_开心 = preload("uid://tf4d4x0dld8s")
 const SFX_猫_担忧 = preload("uid://b4swsvowee26j")
 const SFX_猫_满足 = preload("uid://byqs71mkvs8hd")
 const SFX_开门 = preload("uid://k7vgbmppgaix")
+const SFX_关门 = preload("uid://88s55bi8uhfk")
 const SFX_扫描 = preload("uid://bq0ch7tjexdr6")
 const SFX_警告 = preload("uid://uvdet07f53t0")
 const SFX_机关 = preload("uid://b32d7v3ajbofo")
@@ -19,6 +20,7 @@ const SFX_拧脖 = preload("uid://bcrxiq7umawlh")
 const SFX_提示 = preload("uid://c2hl7i0hay3eh")
 
 const SCENE_BLACK = preload("uid://08mpfdx7m2ro")
+const SCENE_WHITE = preload("uid://dv832rwp2uneh")
 const SCENE_1_1 = preload("uid://blexl0gay5k0q")
 const SCENE_1_2 = preload("uid://wj7no8vi0wru")
 const SCENE_1_3 = preload("uid://vwbhbyb8qt5a")
@@ -45,6 +47,9 @@ const Script_1 = preload("uid://j73gbj874m7i")
 const Script_Test = preload("uid://cp3ptlodoo5b1")
 const Script_4_2 = preload("uid://degu67hcd8ovc")
 const Script_4_3 = preload("uid://joxu1f6d35kb")
+const Script_4_4 = preload("uid://061d8hoa5a6v")
+const Script_4_5 = preload("uid://bxsx27nhdgsqh")
+
 var current_script:Script=Script_1
 var order_curtain:int=0
 func clear_dialogue_box():for d in %NodeDbox.get_children():d.queue_free()
@@ -62,6 +67,7 @@ const DBOX_ROBOT = preload("uid://bj8acmoepsenw")
 const DBOX_CAT = preload("uid://c6u7ctk1e2gj0")
 const SELECTION = preload("uid://bhg8si8mm6epe")
 const RETRY = preload("uid://dq0x8wyjp1ner")
+const SAVE = preload("uid://bay5sy7ierj7u")
 
 func pick_cmd(arr_str:PackedStringArray,flag:String)->String:
 	var order_start=arr_str[0].find("【")
@@ -213,6 +219,21 @@ func line_to_curtain(line:String):
 					)				
 				%NodeDbox.add_child(selection)
 			
+			"救":
+				var s=SAVE.instantiate()
+				s.save.connect(func():
+					switch_script(Script_4_5)
+					clear_dialogue_box()
+					hide_all_characters()
+					load_next_curtain()
+					)
+				s.other.connect(func():
+					switch_script(Script_4_4)
+					clear_dialogue_box()
+					hide_all_characters()
+					load_next_curtain()
+					)
+				%NodeDbox.add_child(s)
 			_:dia=DBOX.instantiate()
 	else:
 		dia=DBOX.instantiate()
@@ -254,6 +275,7 @@ func line_to_curtain(line:String):
 						"猫_满足":dia.process.push_back(func():Global.play_sfx(SFX_猫_满足))
 						"警告":dia.process.push_back(func():Global.play_sfx(SFX_警告))
 						"开门":dia.process.push_back(func():Global.play_sfx(SFX_开门))
+						"关门":dia.process.push_back(func():Global.play_sfx(SFX_关门))
 						"扫描":dia.process.push_back(func():Global.play_sfx(SFX_扫描))
 						"机关":dia.process.push_back(func():Global.play_sfx(SFX_机关))
 						"枪声":dia.process.push_back(func():Global.play_sfx(SFX_枪声))
@@ -271,6 +293,11 @@ func line_to_curtain(line:String):
 							dia.process.push_back(func():
 								if sat==1:switch_script(Script_4_3)#sat=1时，跳转至剧本4_3，否则跳转至剧本4_2
 								else:switch_script(Script_4_2))
+						"3":
+							dia.process.push_back(func():
+								if Global.is_touch==1:%AnimationPlayerEvent.play("event_1")
+								else:switch_script(Script_4_4))
+						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
 				"事件":
 					match cmd_parameter[1]:
 						"1":
@@ -281,6 +308,7 @@ func line_to_curtain(line:String):
 							dia.process.push_back(func():
 								Global.can_touch=false
 								print("can_touch=false"))
+						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
 				_:print("未知指令:",cmd_parameter[0])
 
 		dia.arr_text=text_offset[0].split("//")
@@ -320,3 +348,27 @@ func change_art_fade(str_name:String,str_face:String,str_dec:String):
 
 func _ready() -> void:
 	load_current_curtain()
+	
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("mouse_right"):
+		sat=1
+		Global.is_touch=1
+	
+	if is_shake:
+		position=Vector2(
+			randf_range(-intensity_shake,intensity_shake),
+			randf_range(-intensity_shake,intensity_shake)
+		)
+	else:position=Vector2.ZERO
+
+var intensity_shake:float=5
+var is_shake:bool=false
+func shake(time:float):
+	is_shake=true
+	%TimerShake.start(time)
+func _on_timer_shake_timeout() -> void:is_shake=false
+func start_event_1():
+	shake(0.5)
+	Global.is_stopped=true
+func end_event_1():
+	Global.is_stopped=false

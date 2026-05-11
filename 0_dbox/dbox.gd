@@ -33,6 +33,7 @@ func reinit():
 	load_text()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Global.is_stopped:return
 	if event.is_action_pressed("mouse_left"):
 		if order_char <arr_text[order_text].length():
 			if is_stopped:is_stopped=false
@@ -40,6 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:try_load_next_line()
 
 func _physics_process(delta: float) -> void:
+	if Global.is_stopped:return
 	if order_char <arr_text[order_text].length():#播放中
 		if Global.auto_play:is_stopped=false
 		if is_stopped:return

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5nk4noyiirif"
-path="res://.godot/imported/UI布局示意图-选项1.png-e552accac714916c5a85f0b80b0935ea.ctex"
+uid="uid://dsqtooo4fm0ts"
+path="res://.godot/imported/青_后退.png-867a70238308e8822d7fcc78fdab289b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0_ui/play/UI布局示意图-选项1.png"
-dest_files=["res://.godot/imported/UI布局示意图-选项1.png-e552accac714916c5a85f0b80b0935ea.ctex"]
+source_file="res://0_character/cat/青_后退.png"
+dest_files=["res://.godot/imported/青_后退.png-867a70238308e8822d7fcc78fdab289b.ctex"]
 
 [params]
 

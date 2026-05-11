@@ -7,8 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://hkkwmyo2cf8x" path="res://0_character/robot/R_怀抱青芽1.png" id="3_ej2gi"]
 [ext_resource type="Texture2D" uid="uid://cgt8ct1v4y0r3" path="res://0_character/robot/R_站立1_2.png" id="3_qjr1p"]
 [ext_resource type="Texture2D" uid="uid://bdswf5vnteff5" path="res://0_character/robot/R_扫描1_1.png" id="3_yi6np"]
+[ext_resource type="Texture2D" uid="uid://dolh548acyx0m" path="res://0_character/robot/R_半跪抓猫.png" id="4_4jja2"]
 [ext_resource type="Texture2D" uid="uid://dht3efx8m4kpp" path="res://0_character/robot/R_扫描1_2.png" id="4_ej2gi"]
 [ext_resource type="Texture2D" uid="uid://c1r2q8utjgftc" path="res://0_character/robot/R_怀抱青芽2.png" id="4_nkx5k"]
+[ext_resource type="Texture2D" uid="uid://chbb8afg2tyxp" path="res://0_character/robot/R_半跪撸猫1.png" id="5_ibud8"]
+[ext_resource type="Texture2D" uid="uid://rjgqhto1g1yl" path="res://0_character/robot/R_拿猫.png" id="10_oqvve"]
+[ext_resource type="Texture2D" uid="uid://bdj7cwb2rx8sk" path="res://0_character/robot/R_猫舔手指1.png" id="12_vbycy"]
+[ext_resource type="Texture2D" uid="uid://cc68qit21xi5b" path="res://0_character/robot/R_猫舔手指2.png" id="13_orhjy"]
 
 [sub_resource type="Animation" id="Animation_moquk"]
 length = 0.001
@@ -108,6 +113,36 @@ tracks/0/keys = {
 "values": [ExtResource("3_c705d")]
 }
 
+[sub_resource type="Animation" id="Animation_7lg6w"]
+resource_name = "半跪抓猫"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_4jja2")]
+}
+
+[sub_resource type="Animation" id="Animation_fyd07"]
+resource_name = "半跪撸猫1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_ibud8")]
+}
+
 [sub_resource type="Animation" id="Animation_fhnf2"]
 resource_name = "怀抱撸猫"
 tracks/0/type = "value"
@@ -183,6 +218,51 @@ tracks/0/keys = {
 "values": [ExtResource("4_ej2gi")]
 }
 
+[sub_resource type="Animation" id="Animation_ibud8"]
+resource_name = "拿猫"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_oqvve")]
+}
+
+[sub_resource type="Animation" id="Animation_g2tmq"]
+resource_name = "猫舔手指1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_vbycy")]
+}
+
+[sub_resource type="Animation" id="Animation_crrlb"]
+resource_name = "猫舔手指2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_orhjy")]
+}
+
 [sub_resource type="Animation" id="Animation_yi6np"]
 resource_name = "站立1_1"
 tracks/0/type = "value"
@@ -217,11 +297,16 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_qjr1p"),
 &"半跪1": SubResource("Animation_4jja2"),
+&"半跪抓猫": SubResource("Animation_7lg6w"),
+&"半跪撸猫1": SubResource("Animation_fyd07"),
 &"怀抱撸猫": SubResource("Animation_fhnf2"),
 &"怀抱青芽1": SubResource("Animation_ej2gi"),
 &"怀抱青芽2": SubResource("Animation_crefg"),
 &"扫描1_1": SubResource("Animation_c705d"),
 &"扫描1_2": SubResource("Animation_54pnk"),
+&"拿猫": SubResource("Animation_ibud8"),
+&"猫舔手指1": SubResource("Animation_g2tmq"),
+&"猫舔手指2": SubResource("Animation_crrlb"),
 &"站立1_1": SubResource("Animation_yi6np"),
 &"站立1_2": SubResource("Animation_nkx5k")
 }

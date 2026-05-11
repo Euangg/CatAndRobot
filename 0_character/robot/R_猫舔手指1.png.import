@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7tb608bo0k3a"
-path="res://.godot/imported/UI布局示意图-选项3.png-866f6c2dcc15648b557047da2f02977d.ctex"
+uid="uid://bdj7cwb2rx8sk"
+path="res://.godot/imported/R_猫舔手指1.png-f5dd05c80e8e0aa4d78bb05f3d59693a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0_ui/play/UI布局示意图-选项3.png"
-dest_files=["res://.godot/imported/UI布局示意图-选项3.png-866f6c2dcc15648b557047da2f02977d.ctex"]
+source_file="res://0_character/robot/R_猫舔手指1.png"
+dest_files=["res://.godot/imported/R_猫舔手指1.png-f5dd05c80e8e0aa4d78bb05f3d59693a.ctex"]
 
 [params]
 

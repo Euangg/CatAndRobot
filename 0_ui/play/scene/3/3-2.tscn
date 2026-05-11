@@ -4,14 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://6qcar8upu71x" path="res://0_ui/play/scene/3/场景3-2.png" id="2_f6rpb"]
 [ext_resource type="Texture2D" uid="uid://defvc1ur42rdv" path="res://0_ui/play/scene/3/场景3-3.png" id="3_qklc0"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an5ln"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tqf0p"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8p7en"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84awk"]
-
 [sub_resource type="Animation" id="Animation_tqf0p"]
 length = 0.001
 tracks/0/type = "value"
@@ -82,17 +74,15 @@ mouse_filter = 2
 texture = ExtResource("3_qklc0")
 expand_mode = 1
 
-[node name="Button" type="Button" parent="." unique_id=865576746]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=855172223]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 771.0
-offset_top = 395.0
-offset_right = 1409.0
+offset_top = 396.0
+offset_right = 1407.0
 offset_bottom = 742.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_an5ln")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_tqf0p")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_8p7en")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_84awk")
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=1626693114]
 unique_name_in_owner = true
@@ -102,5 +92,4 @@ one_shot = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=743437359]
 libraries/ = SubResource("AnimationLibrary_84awk")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
