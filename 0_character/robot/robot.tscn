@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://rjgqhto1g1yl" path="res://0_character/robot/R_拿猫.png" id="10_oqvve"]
 [ext_resource type="Texture2D" uid="uid://bdj7cwb2rx8sk" path="res://0_character/robot/R_猫舔手指1.png" id="12_vbycy"]
 [ext_resource type="Texture2D" uid="uid://cc68qit21xi5b" path="res://0_character/robot/R_猫舔手指2.png" id="13_orhjy"]
+[ext_resource type="Texture2D" uid="uid://dqfairrcmbuii" path="res://0_character/robot/R_站立2.png" id="16_orhjy"]
 
 [sub_resource type="Animation" id="Animation_moquk"]
 length = 0.001
@@ -309,6 +310,21 @@ tracks/0/keys = {
 "values": [ExtResource("3_qjr1p")]
 }
 
+[sub_resource type="Animation" id="Animation_8rfad"]
+resource_name = "站立2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("16_orhjy")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ej2gi"]
 _data = {
 &"RESET": SubResource("Animation_qjr1p"),
@@ -325,7 +341,8 @@ _data = {
 &"猫舔手指1": SubResource("Animation_g2tmq"),
 &"猫舔手指2": SubResource("Animation_crrlb"),
 &"站立1_1": SubResource("Animation_yi6np"),
-&"站立1_2": SubResource("Animation_nkx5k")
+&"站立1_2": SubResource("Animation_nkx5k"),
+&"站立2": SubResource("Animation_8rfad")
 }
 
 [node name="Robot" type="Control" unique_id=1998197758]

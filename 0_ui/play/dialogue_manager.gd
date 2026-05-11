@@ -50,7 +50,7 @@ const Script_4_3 = preload("uid://joxu1f6d35kb")
 const Script_4_4 = preload("uid://061d8hoa5a6v")
 const Script_4_5 = preload("uid://bxsx27nhdgsqh")
 
-var current_script:Script=Script_4_4
+var current_script:Script=Script_1
 var order_curtain:int=0
 func clear_dialogue_box():for d in %NodeDbox.get_children():d.queue_free()
 func switch_script(script:Script):
@@ -239,7 +239,10 @@ func line_to_curtain(line:String):
 				%NodeDbox.add_child(s)
 			"变":
 				var c=CHANGE.instantiate()
-				c.event.connect(func():shake(0.8))
+				c.event.connect(func():
+					shake(0.8)
+					Global.play_sfx(SFX_关门)
+					)
 				c.end.connect(func():
 					clear_dialogue_box()
 					hide_all_characters()
@@ -385,5 +388,10 @@ func start_event_1():
 	Global.is_stopped=true
 func end_event_1():
 	Global.is_stopped=false
+func auto_next():
+	clear_dialogue_box()
+	hide_all_characters()
+	load_next_curtain()
+	print("自动播放:",current_script.content[order_curtain])
 func sfx_close_door():
 	Global.play_sfx(SFX_关门)

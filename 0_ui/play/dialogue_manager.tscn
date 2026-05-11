@@ -16,8 +16,8 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.3000001, 2.6, 2.61, 3.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.3000001, 2.6, 2.61, 2.62, 2.63),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"start_event_1"
@@ -30,6 +30,9 @@ tracks/0/keys = {
 }, {
 "args": [],
 "method": &"sfx_close_door"
+}, {
+"args": [],
+"method": &"auto_next"
 }, {
 "args": [],
 "method": &"end_event_1"
