@@ -11,11 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://dht3efx8m4kpp" path="res://0_character/robot/R_扫描1_2.png" id="4_ej2gi"]
 [ext_resource type="Texture2D" uid="uid://c1r2q8utjgftc" path="res://0_character/robot/R_怀抱青芽2.png" id="4_nkx5k"]
 [ext_resource type="Texture2D" uid="uid://chbb8afg2tyxp" path="res://0_character/robot/R_半跪撸猫1.png" id="5_ibud8"]
+[ext_resource type="Texture2D" uid="uid://bxmruo28nlbtw" path="res://0_character/robot/R_怀抱青芽3.png" id="9_g2tmq"]
 [ext_resource type="Texture2D" uid="uid://yjkii8bvwxbv" path="res://0_character/robot/R_怀抱青芽5.png" id="9_vbycy"]
+[ext_resource type="Texture2D" uid="uid://d3ami8rsl2h2g" path="res://0_character/robot/R_怀抱青芽4.png" id="10_crrlb"]
 [ext_resource type="Texture2D" uid="uid://rjgqhto1g1yl" path="res://0_character/robot/R_拿猫.png" id="10_oqvve"]
 [ext_resource type="Texture2D" uid="uid://bdj7cwb2rx8sk" path="res://0_character/robot/R_猫舔手指1.png" id="12_vbycy"]
 [ext_resource type="Texture2D" uid="uid://cc68qit21xi5b" path="res://0_character/robot/R_猫舔手指2.png" id="13_orhjy"]
 [ext_resource type="Texture2D" uid="uid://dqfairrcmbuii" path="res://0_character/robot/R_站立2.png" id="16_orhjy"]
+[ext_resource type="Texture2D" uid="uid://7iuj8g2vja8c" path="res://0_character/robot/R_站立3.png" id="19_crrlb"]
 
 [sub_resource type="Animation" id="Animation_moquk"]
 length = 0.001
@@ -190,6 +193,36 @@ tracks/0/keys = {
 "values": [ExtResource("4_nkx5k")]
 }
 
+[sub_resource type="Animation" id="Animation_acy7v"]
+resource_name = "怀抱青芽3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_g2tmq")]
+}
+
+[sub_resource type="Animation" id="Animation_cwfwa"]
+resource_name = "怀抱青芽4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_crrlb")]
+}
+
 [sub_resource type="Animation" id="Animation_orhjy"]
 resource_name = "怀抱青芽5"
 tracks/0/type = "value"
@@ -325,6 +358,21 @@ tracks/0/keys = {
 "values": [ExtResource("16_orhjy")]
 }
 
+[sub_resource type="Animation" id="Animation_4m4ao"]
+resource_name = "站立3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("19_crrlb")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ej2gi"]
 _data = {
 &"RESET": SubResource("Animation_qjr1p"),
@@ -334,6 +382,8 @@ _data = {
 &"怀抱撸猫": SubResource("Animation_fhnf2"),
 &"怀抱青芽1": SubResource("Animation_ej2gi"),
 &"怀抱青芽2": SubResource("Animation_crefg"),
+&"怀抱青芽3": SubResource("Animation_acy7v"),
+&"怀抱青芽4": SubResource("Animation_cwfwa"),
 &"怀抱青芽5": SubResource("Animation_orhjy"),
 &"扫描1_1": SubResource("Animation_c705d"),
 &"扫描1_2": SubResource("Animation_54pnk"),
@@ -342,7 +392,8 @@ _data = {
 &"猫舔手指2": SubResource("Animation_crrlb"),
 &"站立1_1": SubResource("Animation_yi6np"),
 &"站立1_2": SubResource("Animation_nkx5k"),
-&"站立2": SubResource("Animation_8rfad")
+&"站立2": SubResource("Animation_8rfad"),
+&"站立3": SubResource("Animation_4m4ao")
 }
 
 [node name="Robot" type="Control" unique_id=1998197758]

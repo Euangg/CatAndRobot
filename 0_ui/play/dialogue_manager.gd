@@ -35,6 +35,8 @@ const SCENE_5_1 = preload("uid://ul8b5cb6oqid")
 const SCENE_5_2 = preload("uid://bu2fmx76uvarc")
 const SCENE_5_3 = preload("uid://b3ykrcenxaihl")
 const SCENE_5_4 = preload("uid://0uah44f1tq06")
+const SCENE_6_1 = preload("uid://d0pk5cdhmb3fu")
+
 func switch_back_scene(new_scene:PackedScene):
 	for s in %NodeScene.get_children():s.queue_free()
 	%NodeScene.add_child(new_scene.instantiate())
@@ -50,7 +52,7 @@ const Script_4_3 = preload("uid://joxu1f6d35kb")
 const Script_4_4 = preload("uid://061d8hoa5a6v")
 const Script_4_5 = preload("uid://bxsx27nhdgsqh")
 
-var current_script:Script=Script_1
+var current_script:Script=Script_4_5
 var order_curtain:int=0
 func clear_dialogue_box():for d in %NodeDbox.get_children():d.queue_free()
 func switch_script(script:Script):
@@ -64,12 +66,14 @@ func load_next_curtain(offset:int=0):
 
 const DBOX = preload("uid://b4078rvnvfsel")
 const DBOX_ROBOT = preload("uid://bj8acmoepsenw")
+const DBOX_ROBOT_2 = preload("uid://bt6qjkyprww4v")
 const DBOX_ROBOT_3 = preload("uid://db38dw7neqawm")
 const DBOX_CAT = preload("uid://c6u7ctk1e2gj0")
 const SELECTION = preload("uid://bhg8si8mm6epe")
 const RETRY = preload("uid://dq0x8wyjp1ner")
 const SAVE = preload("uid://bay5sy7ierj7u")
 const CHANGE = preload("uid://b6sfjus2ps84")
+const CHANGE_VOID = preload("uid://bq1dx5uf16f4d")
 
 func pick_cmd(arr_str:PackedStringArray,flag:String)->String:
 	var order_start=arr_str[0].find("【")
@@ -92,7 +96,7 @@ func line_to_curtain(line:String):
 		if c=="":continue
 		var control_character:Character=null
 		match c[0]:
-			"R","序":control_character=art_robot
+			"R","序","虚":control_character=art_robot
 			"青":control_character=art_cat
 		if control_character and c.length()>1:
 			control_character.show()
@@ -127,6 +131,7 @@ func line_to_curtain(line:String):
 			"R":
 				dia=DBOX_ROBOT.instantiate()
 				#default_character=art_lin
+			"虚":dia=DBOX_ROBOT_2.instantiate()
 			"序":dia=DBOX_ROBOT_3.instantiate()
 			"青":
 				dia=DBOX_CAT.instantiate()
@@ -249,6 +254,17 @@ func line_to_curtain(line:String):
 					load_next_curtain()
 				)
 				%NodeDbox.add_child(c)
+			"便":
+				var b=CHANGE_VOID.instantiate()
+				b.event.connect(func():
+					shake(1,10)
+					Global.play_sfx(SFX_关门))
+				b.end.connect(func():
+					clear_dialogue_box()
+					hide_all_characters()
+					load_next_curtain()
+					)
+				%NodeDbox.add_child(b)
 			_:dia=DBOX.instantiate()
 	else:
 		dia=DBOX.instantiate()
@@ -282,6 +298,7 @@ func line_to_curtain(line:String):
 						"场景5_2":dia.process.push_back(func():switch_back_scene(SCENE_5_2))
 						"场景5_3":dia.process.push_back(func():switch_back_scene(SCENE_5_3))
 						"场景5_4":dia.process.push_back(func():switch_back_scene(SCENE_5_4))
+						"场景6_1":dia.process.push_back(func():switch_back_scene(SCENE_6_1))
 						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
 				"音效":
 					match cmd_parameter[1]:
@@ -325,6 +342,7 @@ func line_to_curtain(line:String):
 								Global.can_touch=false
 								print("can_touch=false"))
 						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
+				"关闭":get_tree().quit()
 				_:print("未知指令:",cmd_parameter[0])
 
 		dia.arr_text=text_offset[0].split("//")
@@ -339,7 +357,7 @@ func change_art_fade(str_name:String,str_face:String,str_dec:String):
 	var new_c:Character=null
 	var old_c:Character=null
 	match str_name:
-		"R":
+		"R","虚":
 			new_c=art_robot.duplicate()
 			old_c=art_robot
 		"青":
@@ -351,7 +369,7 @@ func change_art_fade(str_name:String,str_face:String,str_dec:String):
 		new_c.ap_face.play(str_face)
 		if str_dec:new_c.show_dec(str_dec)
 		match str_name:
-			"R":art_robot=new_c
+			"R","虚":art_robot=new_c
 			"青":art_cat=new_c
 		)
 	old_c.add_sibling(new_c)
@@ -379,7 +397,8 @@ func _physics_process(delta: float) -> void:
 
 var intensity_shake:float=5
 var is_shake:bool=false
-func shake(time:float):
+func shake(time:float,i:float=5):
+	intensity_shake=i
 	is_shake=true
 	%TimerShake.start(time)
 func _on_timer_shake_timeout() -> void:is_shake=false
