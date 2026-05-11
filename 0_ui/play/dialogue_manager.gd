@@ -50,7 +50,7 @@ const Script_4_3 = preload("uid://joxu1f6d35kb")
 const Script_4_4 = preload("uid://061d8hoa5a6v")
 const Script_4_5 = preload("uid://bxsx27nhdgsqh")
 
-var current_script:Script=Script_1
+var current_script:Script=Script_4_4
 var order_curtain:int=0
 func clear_dialogue_box():for d in %NodeDbox.get_children():d.queue_free()
 func switch_script(script:Script):
@@ -64,10 +64,12 @@ func load_next_curtain(offset:int=0):
 
 const DBOX = preload("uid://b4078rvnvfsel")
 const DBOX_ROBOT = preload("uid://bj8acmoepsenw")
+const DBOX_ROBOT_3 = preload("uid://db38dw7neqawm")
 const DBOX_CAT = preload("uid://c6u7ctk1e2gj0")
 const SELECTION = preload("uid://bhg8si8mm6epe")
 const RETRY = preload("uid://dq0x8wyjp1ner")
 const SAVE = preload("uid://bay5sy7ierj7u")
+const CHANGE = preload("uid://b6sfjus2ps84")
 
 func pick_cmd(arr_str:PackedStringArray,flag:String)->String:
 	var order_start=arr_str[0].find("【")
@@ -90,7 +92,7 @@ func line_to_curtain(line:String):
 		if c=="":continue
 		var control_character:Character=null
 		match c[0]:
-			"R":control_character=art_robot
+			"R","序":control_character=art_robot
 			"青":control_character=art_cat
 		if control_character and c.length()>1:
 			control_character.show()
@@ -125,6 +127,7 @@ func line_to_curtain(line:String):
 			"R":
 				dia=DBOX_ROBOT.instantiate()
 				#default_character=art_lin
+			"序":dia=DBOX_ROBOT_3.instantiate()
 			"青":
 				dia=DBOX_CAT.instantiate()
 				#default_character=art_cheng
@@ -234,6 +237,15 @@ func line_to_curtain(line:String):
 					load_next_curtain()
 					)
 				%NodeDbox.add_child(s)
+			"变":
+				var c=CHANGE.instantiate()
+				c.event.connect(func():shake(0.8))
+				c.end.connect(func():
+					clear_dialogue_box()
+					hide_all_characters()
+					load_next_curtain()
+				)
+				%NodeDbox.add_child(c)
 			_:dia=DBOX.instantiate()
 	else:
 		dia=DBOX.instantiate()
@@ -253,6 +265,7 @@ func line_to_curtain(line:String):
 				"场景":
 					match cmd_parameter[1]:
 						"黑屏幕":dia.process.push_back(func():switch_back_scene(SCENE_BLACK))
+						"白屏幕":dia.process.push_back(func():switch_back_scene(SCENE_WHITE))
 						"场景1_1":dia.process.push_back(func():switch_back_scene(SCENE_1_1))
 						"场景1_2":dia.process.push_back(func():switch_back_scene(SCENE_1_2))
 						"场景1_3":dia.process.push_back(func():switch_back_scene(SCENE_1_3))
@@ -372,3 +385,5 @@ func start_event_1():
 	Global.is_stopped=true
 func end_event_1():
 	Global.is_stopped=false
+func sfx_close_door():
+	Global.play_sfx(SFX_关门)

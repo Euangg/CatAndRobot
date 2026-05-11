@@ -21,8 +21,6 @@ func set_auto_play_temp_pause():
 	%TimerTempPause.start()
 func _on_timer_temp_pause_timeout() -> void:auto_play_temp_pause=false
 
-
-
-###############
+########################
 var can_touch=true
 var is_touch=0

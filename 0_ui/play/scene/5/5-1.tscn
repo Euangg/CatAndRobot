@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://gj1kyx48c6u3" path="res://0_ui/play/scene/5/场景5-1.png" id="1_4k74m"]
 
-[node name="52" type="Control" unique_id=124081438]
+[node name="51" type="Control" unique_id=124081438]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

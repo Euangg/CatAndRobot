@@ -9,9 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://bo1nxrv0imibp" path="res://0_character/cat/青_站立1.png" id="5_6e0em"]
 [ext_resource type="Texture2D" uid="uid://c5acexvdo61yd" path="res://0_character/cat/青_惊吓.png" id="5_txdh0"]
 [ext_resource type="Texture2D" uid="uid://dtix82l2w7l24" path="res://0_character/cat/青_立正.png" id="6_7yct7"]
+[ext_resource type="Texture2D" uid="uid://dnqnsjnaguvci" path="res://0_character/cat/青_开心2_1.png" id="6_l4kfw"]
 [ext_resource type="Texture2D" uid="uid://d033611s52ntc" path="res://0_character/cat/青_站立3.png" id="6_ld3s5"]
 [ext_resource type="Texture2D" uid="uid://wxddo1alfw0x" path="res://0_character/cat/青_走动1_1.png" id="11_ser6u"]
 [ext_resource type="Texture2D" uid="uid://dptt5v7skan34" path="res://0_character/cat/青_走动1_2.png" id="12_l4kfw"]
+[ext_resource type="Texture2D" uid="uid://d20onotnrapa7" path="res://0_character/cat/青_震惊.png" id="14_b8rpg"]
 
 [sub_resource type="Animation" id="Animation_2ht5p"]
 length = 0.001
@@ -156,6 +158,21 @@ tracks/0/keys = {
 "values": [ExtResource("3_ld3s5")]
 }
 
+[sub_resource type="Animation" id="Animation_f8ci1"]
+resource_name = "开心2_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_l4kfw")]
+}
+
 [sub_resource type="Animation" id="Animation_ser6u"]
 resource_name = "开心2_2"
 tracks/0/type = "value"
@@ -261,6 +278,21 @@ tracks/0/keys = {
 "values": [ExtResource("12_l4kfw")]
 }
 
+[sub_resource type="Animation" id="Animation_3xuvv"]
+resource_name = "震惊"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_b8rpg")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b8rpg"]
 _data = {
 &"RESET": SubResource("Animation_txdh0"),
@@ -268,13 +300,15 @@ _data = {
 &"坐": SubResource("Animation_sn42k"),
 &"开心1_1": SubResource("Animation_7yct7"),
 &"开心1_2": SubResource("Animation_ijams"),
+&"开心2_1": SubResource("Animation_f8ci1"),
 &"开心2_2": SubResource("Animation_ser6u"),
 &"惊吓": SubResource("Animation_b8rpg"),
 &"立正": SubResource("Animation_wfhp2"),
 &"站立1": SubResource("Animation_l4kfw"),
 &"站立3": SubResource("Animation_trnt5"),
 &"走动1_1": SubResource("Animation_5lwjd"),
-&"走动1_2": SubResource("Animation_kdccx")
+&"走动1_2": SubResource("Animation_kdccx"),
+&"震惊": SubResource("Animation_3xuvv")
 }
 
 [node name="Cat" type="Control" unique_id=1998197758]

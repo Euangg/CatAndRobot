@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://db38dw7neqawm"]
+
+[ext_resource type="Script" uid="uid://cti4o0cfu0v8d" path="res://0_dbox/dbox.gd" id="1_wjkv1"]
+[ext_resource type="Texture2D" uid="uid://br2civxfmxq05" path="res://0_dbox/robot/机器人 对话框.png" id="2_ghspx"]
+[ext_resource type="Texture2D" uid="uid://c1gnrjqsd173k" path="res://0_dbox/robot/机器人 名称.png" id="3_d0sru"]
+[ext_resource type="Texture2D" uid="uid://o3dn822mgxfj" path="res://0_dbox/robot/机器人 齿轮.png" id="4_exhqr"]
+
+[node name="DboxRobot" type="Control" unique_id=249419383]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wjkv1")
+metadata/_custom_type_script = "uid://cti4o0cfu0v8d"
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1774560831]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ghspx")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=1531774139]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_d0sru")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="." unique_id=528044929]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_exhqr")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=463962414]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 269.0
+offset_top = 868.0
+offset_right = 1652.0
+offset_bottom = 1013.0
+
+[node name="Name" type="Label" parent="." unique_id=432863825]
+layout_mode = 0
+offset_left = 314.0
+offset_top = 774.0
+offset_right = 614.0
+offset_bottom = 853.0
+theme_override_font_sizes/font_size = 42
+text = "破序"
+horizontal_alignment = 1
+vertical_alignment = 1

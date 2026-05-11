@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dht3efx8m4kpp" path="res://0_character/robot/R_扫描1_2.png" id="4_ej2gi"]
 [ext_resource type="Texture2D" uid="uid://c1r2q8utjgftc" path="res://0_character/robot/R_怀抱青芽2.png" id="4_nkx5k"]
 [ext_resource type="Texture2D" uid="uid://chbb8afg2tyxp" path="res://0_character/robot/R_半跪撸猫1.png" id="5_ibud8"]
+[ext_resource type="Texture2D" uid="uid://yjkii8bvwxbv" path="res://0_character/robot/R_怀抱青芽5.png" id="9_vbycy"]
 [ext_resource type="Texture2D" uid="uid://rjgqhto1g1yl" path="res://0_character/robot/R_拿猫.png" id="10_oqvve"]
 [ext_resource type="Texture2D" uid="uid://bdj7cwb2rx8sk" path="res://0_character/robot/R_猫舔手指1.png" id="12_vbycy"]
 [ext_resource type="Texture2D" uid="uid://cc68qit21xi5b" path="res://0_character/robot/R_猫舔手指2.png" id="13_orhjy"]
@@ -188,6 +189,21 @@ tracks/0/keys = {
 "values": [ExtResource("4_nkx5k")]
 }
 
+[sub_resource type="Animation" id="Animation_orhjy"]
+resource_name = "怀抱青芽5"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_vbycy")]
+}
+
 [sub_resource type="Animation" id="Animation_c705d"]
 resource_name = "扫描1_1"
 tracks/0/type = "value"
@@ -302,6 +318,7 @@ _data = {
 &"怀抱撸猫": SubResource("Animation_fhnf2"),
 &"怀抱青芽1": SubResource("Animation_ej2gi"),
 &"怀抱青芽2": SubResource("Animation_crefg"),
+&"怀抱青芽5": SubResource("Animation_orhjy"),
 &"扫描1_1": SubResource("Animation_c705d"),
 &"扫描1_2": SubResource("Animation_54pnk"),
 &"拿猫": SubResource("Animation_ibud8"),
