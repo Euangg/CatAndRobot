@@ -1,5 +1,6 @@
 extends Control
 
+
 var sat:int
 var tech:int
 
@@ -51,12 +52,31 @@ const Script_4_2 = preload("uid://degu67hcd8ovc")
 const Script_4_3 = preload("uid://joxu1f6d35kb")
 const Script_4_4 = preload("uid://061d8hoa5a6v")
 const Script_4_5 = preload("uid://bxsx27nhdgsqh")
+const Script_7_1 = preload("uid://rpvwuo74h6y4")
 
-var current_script:Script=Script_4_5
+enum Escript{
+	S_TEST,
+	S_MAIN,
+	S_4_2,
+	S_4_3,
+	S_4_4,
+	S_4_5,
+	S_7_1,
+}
+var enum_current_script=Escript.S_MAIN
+var current_script:Script=Script_1
 var order_curtain:int=0
 func clear_dialogue_box():for d in %NodeDbox.get_children():d.queue_free()
-func switch_script(script:Script):
-	current_script=script
+func switch_script(enum_script:Escript):
+	match enum_script:
+		Escript.S_TEST:current_script=Script_Test
+		Escript.S_MAIN:current_script=Script_1
+		Escript.S_4_2:current_script=Script_4_2
+		Escript.S_4_3:current_script=Script_4_3
+		Escript.S_4_4:current_script=Script_4_4
+		Escript.S_4_5:current_script=Script_4_5
+		Escript.S_7_1:current_script=Script_7_1
+	enum_current_script=enum_script
 	order_curtain=-1
 func load_current_curtain():line_to_curtain(current_script.content[order_curtain])
 func load_next_curtain(offset:int=0):
@@ -230,13 +250,13 @@ func line_to_curtain(line:String):
 			"救":
 				var s=SAVE.instantiate()
 				s.save.connect(func():
-					switch_script(Script_4_5)
+					switch_script(Escript.S_4_5)
 					clear_dialogue_box()
 					hide_all_characters()
 					load_next_curtain()
 					)
 				s.other.connect(func():
-					switch_script(Script_4_4)
+					switch_script(Escript.S_4_4)
 					clear_dialogue_box()
 					hide_all_characters()
 					load_next_curtain()
@@ -324,12 +344,12 @@ func line_to_curtain(line:String):
 								)
 						"2":
 							dia.process.push_back(func():
-								if sat==1:switch_script(Script_4_3)#sat=1时，跳转至剧本4_3，否则跳转至剧本4_2
-								else:switch_script(Script_4_2))
+								if sat==1:switch_script(Escript.S_4_3)#sat=1时，跳转至剧本4_3，否则跳转至剧本4_2
+								else:switch_script(Escript.S_4_2))
 						"3":
 							dia.process.push_back(func():
 								if Global.is_touch==1:%AnimationPlayerEvent.play("event_1")
-								else:switch_script(Script_4_4))
+								else:switch_script(Escript.S_4_4))
 						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
 				"事件":
 					match cmd_parameter[1]:
@@ -342,7 +362,12 @@ func line_to_curtain(line:String):
 								Global.can_touch=false
 								print("can_touch=false"))
 						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
-				"关闭":get_tree().quit()
+				"关闭":
+					print("关闭")
+					var exe_path=OS.get_executable_path()
+					var base_path=exe_path.get_base_dir()
+					OS.shell_show_in_file_manager(base_path)
+					get_tree().quit()
 				_:print("未知指令:",cmd_parameter[0])
 
 		dia.arr_text=text_offset[0].split("//")
@@ -381,7 +406,20 @@ func change_art_fade(str_name:String,str_face:String,str_dec:String):
 		old_c.queue_free())
 
 func _ready() -> void:
-	load_current_curtain()
+	switch_script(Escript.S_TEST)
+	
+	if Global.is_limit_exist:
+		if Global.is_touch==2:switch_script(Escript.S_4_5)
+		else:pass
+	else:
+		if Global.is_touch==2:
+			Global.is_touch=0
+			switch_script(Escript.S_4_5)
+		else:
+			OS.create_process("exe/MessageBox.exe",[])
+			get_tree().quit()
+	
+	load_next_curtain()
 	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("mouse_right"):
@@ -414,3 +452,15 @@ func auto_next():
 	print("自动播放:",current_script.content[order_curtain])
 func sfx_close_door():
 	Global.play_sfx(SFX_关门)
+
+func save_data_2():
+	var data={
+		"enum_current_script":0,
+	}
+	var json=JSON.stringify(data)
+	var file:FileAccess=FileAccess.open("user://data_2.sav",FileAccess.WRITE)
+	file.store_string(json)
+	file.close()
+
+func load_data_2():
+	pass

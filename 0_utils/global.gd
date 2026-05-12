@@ -1,5 +1,17 @@
 extends Node
 
+var exe_path
+var is_limit_exist:bool=true
+func _ready() -> void:
+	print("global load")
+	var path_has_exe=OS.get_executable_path()
+	exe_path=path_has_exe.get_base_dir()
+	load_data_1()
+	#
+	var file_name=exe_path.path_join("Limitation.exe")
+	is_limit_exist=FileAccess.file_exists(file_name)
+	print(file_name,",",is_limit_exist)
+
 func play_bgm(path_bgm:String):
 	%Bgm.stream=load(path_bgm)
 	%Bgm.play()
@@ -24,3 +36,19 @@ func _on_timer_temp_pause_timeout() -> void:auto_play_temp_pause=false
 ########################
 var can_touch=true
 var is_touch=0
+
+func save_data_1():
+	var data={
+		"is_touch":is_touch,
+	}
+	var json=JSON.stringify(data)
+	var file:FileAccess=FileAccess.open("user://data_1.sav",FileAccess.WRITE)
+	file.store_string(json)
+	file.close()
+	
+func load_data_1():
+	var file=FileAccess.open("user://data_1.sav",FileAccess.READ)
+	if file:
+		var string=file.get_as_text()
+		var data=JSON.parse_string(string)
+		is_touch=data["is_touch"]
