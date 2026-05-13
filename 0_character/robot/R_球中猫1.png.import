@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drojpja0kiicq"
-path="res://.godot/imported/1.png-444f084d5c315f4218ba54dfc1a6b3a3.ctex"
+uid="uid://bcbn82chhtes0"
+path="res://.godot/imported/R_球中猫1.png-d317c4d85c64a4f4af09d4afddeebce5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0_ui/play/scene/1/1.png"
-dest_files=["res://.godot/imported/1.png-444f084d5c315f4218ba54dfc1a6b3a3.ctex"]
+source_file="res://0_character/robot/R_球中猫1.png"
+dest_files=["res://.godot/imported/R_球中猫1.png-d317c4d85c64a4f4af09d4afddeebce5.ctex"]
 
 [params]
 

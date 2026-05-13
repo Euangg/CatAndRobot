@@ -46,37 +46,23 @@ func hide_all_characters():
 	art_cat.hide()
 	art_robot.hide()
 
-const Script_1 = preload("uid://j73gbj874m7i")
-const Script_Test = preload("uid://cp3ptlodoo5b1")
-const Script_4_2 = preload("uid://degu67hcd8ovc")
-const Script_4_3 = preload("uid://joxu1f6d35kb")
-const Script_4_4 = preload("uid://061d8hoa5a6v")
-const Script_4_5 = preload("uid://bxsx27nhdgsqh")
-const Script_7_1 = preload("uid://rpvwuo74h6y4")
-
-enum Escript{
-	S_TEST,
-	S_MAIN,
-	S_4_2,
-	S_4_3,
-	S_4_4,
-	S_4_5,
-	S_7_1,
+var dic_script={
+	"test":preload("uid://cp3ptlodoo5b1"),
+	"main":preload("uid://j73gbj874m7i"),
+	"4_2":preload("uid://degu67hcd8ovc"),
+	"4_3":preload("uid://joxu1f6d35kb"),
+	"4_4":preload("uid://061d8hoa5a6v"),
+	"4_5":preload("uid://bxsx27nhdgsqh"),
+	"5_1":preload("uid://da2ri1lyb74yr"),
+	"7_1":preload("uid://rpvwuo74h6y4"),
 }
-var enum_current_script=Escript.S_MAIN
-var current_script:Script=Script_1
+var str_current_script="main"
+var current_script:Script=dic_script[str_current_script]
 var order_curtain:int=0
 func clear_dialogue_box():for d in %NodeDbox.get_children():d.queue_free()
-func switch_script(enum_script:Escript):
-	match enum_script:
-		Escript.S_TEST:current_script=Script_Test
-		Escript.S_MAIN:current_script=Script_1
-		Escript.S_4_2:current_script=Script_4_2
-		Escript.S_4_3:current_script=Script_4_3
-		Escript.S_4_4:current_script=Script_4_4
-		Escript.S_4_5:current_script=Script_4_5
-		Escript.S_7_1:current_script=Script_7_1
-	enum_current_script=enum_script
+func switch_script(str_script:String):
+	str_current_script=str_script
+	current_script=dic_script[str_current_script]
 	order_curtain=-1
 func load_current_curtain():line_to_curtain(current_script.content[order_curtain])
 func load_next_curtain(offset:int=0):
@@ -250,13 +236,13 @@ func line_to_curtain(line:String):
 			"救":
 				var s=SAVE.instantiate()
 				s.save.connect(func():
-					switch_script(Escript.S_4_5)
+					switch_script("4_5")
 					clear_dialogue_box()
 					hide_all_characters()
 					load_next_curtain()
 					)
 				s.other.connect(func():
-					switch_script(Escript.S_4_4)
+					switch_script("4_4")
 					clear_dialogue_box()
 					hide_all_characters()
 					load_next_curtain()
@@ -344,12 +330,12 @@ func line_to_curtain(line:String):
 								)
 						"2":
 							dia.process.push_back(func():
-								if sat==1:switch_script(Escript.S_4_3)#sat=1时，跳转至剧本4_3，否则跳转至剧本4_2
-								else:switch_script(Escript.S_4_2))
+								if sat==1:switch_script("4_3")#sat=1时，跳转至剧本4_3，否则跳转至剧本4_2
+								else:switch_script("4_2"))
 						"3":
 							dia.process.push_back(func():
 								if Global.is_touch==1:%AnimationPlayerEvent.play("event_1")
-								else:switch_script(Escript.S_4_4))
+								else:switch_script("4_4"))
 						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
 				"事件":
 					match cmd_parameter[1]:
@@ -364,9 +350,7 @@ func line_to_curtain(line:String):
 						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
 				"关闭":
 					print("关闭")
-					var exe_path=OS.get_executable_path()
-					var base_path=exe_path.get_base_dir()
-					OS.shell_show_in_file_manager(base_path)
+					OS.shell_show_in_file_manager(Global.exe_path)
 					get_tree().quit()
 				_:print("未知指令:",cmd_parameter[0])
 
@@ -406,15 +390,19 @@ func change_art_fade(str_name:String,str_face:String,str_dec:String):
 		old_c.queue_free())
 
 func _ready() -> void:
-	switch_script(Escript.S_TEST)
+	switch_script("test")
 	
 	if Global.is_limit_exist:
-		if Global.is_touch==2:switch_script(Escript.S_4_5)
+		if Global.is_touch==2:switch_script("5_1")
 		else:pass
 	else:
 		if Global.is_touch==2:
 			Global.is_touch=0
-			switch_script(Escript.S_4_5)
+			switch_script("7_1")
+			OS.create_process("exe/MessageBox.exe",[])
+			var target=Global.exe_path.path_join("破虚与青芽.png")
+			DirAccess.copy_absolute(("uid://cgkx7qje8o6wt"),target)
+			
 		else:
 			OS.create_process("exe/MessageBox.exe",[])
 			get_tree().quit()
@@ -455,7 +443,7 @@ func sfx_close_door():
 
 func save_data_2():
 	var data={
-		"enum_current_script":0,
+		"str_current_script":str_current_script,
 	}
 	var json=JSON.stringify(data)
 	var file:FileAccess=FileAccess.open("user://data_2.sav",FileAccess.WRITE)

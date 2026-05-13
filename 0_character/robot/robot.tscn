@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cgt8ct1v4y0r3" path="res://0_character/robot/R_站立1_2.png" id="3_qjr1p"]
 [ext_resource type="Texture2D" uid="uid://bdswf5vnteff5" path="res://0_character/robot/R_扫描1_1.png" id="3_yi6np"]
 [ext_resource type="Texture2D" uid="uid://dolh548acyx0m" path="res://0_character/robot/R_半跪抓猫.png" id="4_4jja2"]
+[ext_resource type="Texture2D" uid="uid://cnkfyibtdahxl" path="res://0_character/robot/R_半跪2.png" id="4_8rfad"]
 [ext_resource type="Texture2D" uid="uid://dht3efx8m4kpp" path="res://0_character/robot/R_扫描1_2.png" id="4_ej2gi"]
 [ext_resource type="Texture2D" uid="uid://c1r2q8utjgftc" path="res://0_character/robot/R_怀抱青芽2.png" id="4_nkx5k"]
 [ext_resource type="Texture2D" uid="uid://chbb8afg2tyxp" path="res://0_character/robot/R_半跪撸猫1.png" id="5_ibud8"]
@@ -18,7 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://bdj7cwb2rx8sk" path="res://0_character/robot/R_猫舔手指1.png" id="12_vbycy"]
 [ext_resource type="Texture2D" uid="uid://cc68qit21xi5b" path="res://0_character/robot/R_猫舔手指2.png" id="13_orhjy"]
 [ext_resource type="Texture2D" uid="uid://dqfairrcmbuii" path="res://0_character/robot/R_站立2.png" id="16_orhjy"]
+[ext_resource type="Texture2D" uid="uid://bqtjjahorq6jg" path="res://0_character/robot/R_拿球.png" id="16_voakd"]
 [ext_resource type="Texture2D" uid="uid://7iuj8g2vja8c" path="res://0_character/robot/R_站立3.png" id="19_crrlb"]
+[ext_resource type="Texture2D" uid="uid://bcbn82chhtes0" path="res://0_character/robot/R_球中猫1.png" id="19_fbv8a"]
+[ext_resource type="Texture2D" uid="uid://l0h4vmisrpce" path="res://0_character/robot/R_球中猫2.png" id="20_ofvru"]
+[ext_resource type="Texture2D" uid="uid://dtrwbvsum8v2" path="res://0_character/robot/R_球中猫3.png" id="21_br68k"]
+[ext_resource type="Texture2D" uid="uid://c6xtbvalr8y5o" path="res://0_character/robot/R_球中猫4.png" id="22_vpfvo"]
 
 [sub_resource type="Animation" id="Animation_moquk"]
 length = 0.001
@@ -116,6 +122,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("3_c705d")]
+}
+
+[sub_resource type="Animation" id="Animation_8c436"]
+resource_name = "半跪2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_8rfad")]
 }
 
 [sub_resource type="Animation" id="Animation_7lg6w"]
@@ -283,6 +304,21 @@ tracks/0/keys = {
 "values": [ExtResource("10_oqvve")]
 }
 
+[sub_resource type="Animation" id="Animation_jijis"]
+resource_name = "拿球"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("16_voakd")]
+}
+
 [sub_resource type="Animation" id="Animation_g2tmq"]
 resource_name = "猫舔手指1"
 tracks/0/type = "value"
@@ -311,6 +347,66 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("13_orhjy")]
+}
+
+[sub_resource type="Animation" id="Animation_ty8cg"]
+resource_name = "球中猫1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("19_fbv8a")]
+}
+
+[sub_resource type="Animation" id="Animation_l3j2p"]
+resource_name = "球中猫2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("20_ofvru")]
+}
+
+[sub_resource type="Animation" id="Animation_j5ap6"]
+resource_name = "球中猫3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("21_br68k")]
+}
+
+[sub_resource type="Animation" id="Animation_r56xk"]
+resource_name = "球中猫4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("22_vpfvo")]
 }
 
 [sub_resource type="Animation" id="Animation_yi6np"]
@@ -377,6 +473,7 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_qjr1p"),
 &"半跪1": SubResource("Animation_4jja2"),
+&"半跪2": SubResource("Animation_8c436"),
 &"半跪抓猫": SubResource("Animation_7lg6w"),
 &"半跪撸猫1": SubResource("Animation_fyd07"),
 &"怀抱撸猫": SubResource("Animation_fhnf2"),
@@ -388,8 +485,13 @@ _data = {
 &"扫描1_1": SubResource("Animation_c705d"),
 &"扫描1_2": SubResource("Animation_54pnk"),
 &"拿猫": SubResource("Animation_ibud8"),
+&"拿球": SubResource("Animation_jijis"),
 &"猫舔手指1": SubResource("Animation_g2tmq"),
 &"猫舔手指2": SubResource("Animation_crrlb"),
+&"球中猫1": SubResource("Animation_ty8cg"),
+&"球中猫2": SubResource("Animation_l3j2p"),
+&"球中猫3": SubResource("Animation_j5ap6"),
+&"球中猫4": SubResource("Animation_r56xk"),
 &"站立1_1": SubResource("Animation_yi6np"),
 &"站立1_2": SubResource("Animation_nkx5k"),
 &"站立2": SubResource("Animation_8rfad"),

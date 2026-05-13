@@ -1,6 +1,6 @@
 extends Node
 
-var exe_path
+var exe_path:String
 var is_limit_exist:bool=true
 func _ready() -> void:
 	print("global load")
@@ -11,6 +11,9 @@ func _ready() -> void:
 	var file_name=exe_path.path_join("Limitation.exe")
 	is_limit_exist=FileAccess.file_exists(file_name)
 	print(file_name,",",is_limit_exist)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action("k"):OS.shell_show_in_file_manager(Global.exe_path)
 
 func play_bgm(path_bgm:String):
 	%Bgm.stream=load(path_bgm)
