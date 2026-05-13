@@ -1,6 +1,5 @@
 extends Control
 
-
 var sat:int
 var tech:int
 
@@ -347,13 +346,16 @@ func line_to_curtain(line:String):
 							dia.process.push_back(func():
 								Global.can_touch=false
 								print("can_touch=false"))
+						"3":
+							dia.process.push_back(func():
+								switch_script("5_1"))
 						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
 				"关闭":
 					print("关闭")
 					OS.shell_show_in_file_manager(Global.exe_path)
 					get_tree().quit()
 				_:print("未知指令:",cmd_parameter[0])
-
+		
 		dia.arr_text=text_offset[0].split("//")
 		dia.end.connect(func():
 			clear_dialogue_box()
@@ -366,7 +368,7 @@ func change_art_fade(str_name:String,str_face:String,str_dec:String):
 	var new_c:Character=null
 	var old_c:Character=null
 	match str_name:
-		"R","虚":
+		"R","虚","序":
 			new_c=art_robot.duplicate()
 			old_c=art_robot
 		"青":
@@ -378,7 +380,7 @@ func change_art_fade(str_name:String,str_face:String,str_dec:String):
 		new_c.ap_face.play(str_face)
 		if str_dec:new_c.show_dec(str_dec)
 		match str_name:
-			"R","虚":art_robot=new_c
+			"R","虚","序":art_robot=new_c
 			"青":art_cat=new_c
 		)
 	old_c.add_sibling(new_c)
@@ -399,12 +401,11 @@ func _ready() -> void:
 		if Global.is_touch==2:
 			Global.is_touch=0
 			switch_script("7_1")
-			OS.create_process("exe/MessageBox.exe",[])
-			var target=Global.exe_path.path_join("破虚与青芽.png")
-			DirAccess.copy_absolute(("uid://cgkx7qje8o6wt"),target)
+			OS.create_process(Global.exe_path.path_join("MessageBox2.exe"),[])
+			copy_png()
 			
 		else:
-			OS.create_process("exe/MessageBox.exe",[])
+			OS.create_process(Global.exe_path.path_join("MessageBox.exe"),[])
 			get_tree().quit()
 	
 	load_next_curtain()
@@ -440,6 +441,12 @@ func auto_next():
 	print("自动播放:",current_script.content[order_curtain])
 func sfx_close_door():
 	Global.play_sfx(SFX_关门)
+
+func copy_png():
+	var src:CompressedTexture2D=load("uid://cgkx7qje8o6wt")
+	if src:
+		var target=Global.exe_path.path_join("破虚与青芽.png")
+		src.get_image().save_png(target)
 
 func save_data_2():
 	var data={
