@@ -464,9 +464,7 @@ func load_data_2():
 		str_current_script=data["str_current_script"]
 		switch_back_scene(str_current_scene)
 		switch_script(str_current_script)
-		order_curtain=data["order_curtain"]
+		order_curtain=data["order_curtain"]-1
 		
 		sat=data["sat"]
 		tech=data["tech"]
-		
-		load_current_curtain()
