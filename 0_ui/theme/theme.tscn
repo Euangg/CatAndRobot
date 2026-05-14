@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://bcyorsasvmhej"]
+
+[ext_resource type="Texture2D" uid="uid://dlh8r24jqgrhg" path="res://0_ui/theme/主界面.png" id="1_4euet"]
+[ext_resource type="Script" uid="uid://b0c6n0ulp3rvc" path="res://0_ui/theme/theme.gd" id="1_lgvji"]
+[ext_resource type="Texture2D" uid="uid://d2ltqyrwagkd3" path="res://0_ui/theme/主界面选项.png" id="2_jctv3"]
+[ext_resource type="PackedScene" uid="uid://dis5lscxvkj70" path="res://0_ui/theme/button.tscn" id="3_jokyh"]
+[ext_resource type="PackedScene" uid="uid://01rf5sjr66r2" path="res://0_ui/theme/star.tscn" id="3_tmm7h"]
+
+[node name="Theme" type="Control" unique_id=1136124953]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lgvji")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=443268761]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4euet")
+
+[node name="Star" parent="TextureRect" unique_id=943776682 instance=ExtResource("3_tmm7h")]
+position = Vector2(384, 919)
+
+[node name="Star2" parent="TextureRect" unique_id=1288666720 instance=ExtResource("3_tmm7h")]
+position = Vector2(574, 888)
+
+[node name="Star3" parent="TextureRect" unique_id=106091061 instance=ExtResource("3_tmm7h")]
+position = Vector2(837, 952)
+
+[node name="Star4" parent="TextureRect" unique_id=1644196905 instance=ExtResource("3_tmm7h")]
+position = Vector2(1074, 966)
+
+[node name="Star5" parent="TextureRect" unique_id=1482464924 instance=ExtResource("3_tmm7h")]
+position = Vector2(1330, 903)
+
+[node name="Star6" parent="TextureRect" unique_id=308905421 instance=ExtResource("3_tmm7h")]
+position = Vector2(1422, 808)
+
+[node name="Star7" parent="TextureRect" unique_id=51857866 instance=ExtResource("3_tmm7h")]
+position = Vector2(1246, 758)
+
+[node name="Star8" parent="TextureRect" unique_id=737969187 instance=ExtResource("3_tmm7h")]
+position = Vector2(1608, 821)
+
+[node name="Star9" parent="TextureRect" unique_id=1294036367 instance=ExtResource("3_tmm7h")]
+position = Vector2(1568, 914)
+
+[node name="Star10" parent="TextureRect" unique_id=1632633907 instance=ExtResource("3_tmm7h")]
+position = Vector2(1843, 904)
+
+[node name="Star11" parent="TextureRect" unique_id=324473151 instance=ExtResource("3_tmm7h")]
+position = Vector2(698, 788)
+
+[node name="Star12" parent="TextureRect" unique_id=2130280822 instance=ExtResource("3_tmm7h")]
+position = Vector2(142, 846)
+
+[node name="Star13" parent="TextureRect" unique_id=1234899353 instance=ExtResource("3_tmm7h")]
+position = Vector2(595, 1022)
+
+[node name="Star14" parent="TextureRect" unique_id=1175507894 instance=ExtResource("3_tmm7h")]
+position = Vector2(964, 1027)
+
+[node name="Star15" parent="TextureRect" unique_id=785721348 instance=ExtResource("3_tmm7h")]
+position = Vector2(1294, 1008)
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1163610951]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jctv3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=770196039]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -1.0
+offset_right = 125.0
+offset_bottom = 379.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 38
+
+[node name="Button" parent="VBoxContainer" unique_id=1436608779 instance=ExtResource("3_jokyh")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Button" index="0" unique_id=1794125656]
+text = "开始"
+
+[node name="Button2" parent="VBoxContainer" unique_id=1503654329 instance=ExtResource("3_jokyh")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Button2" index="0" unique_id=1794125656]
+text = "继续"
+
+[node name="Button3" parent="VBoxContainer" unique_id=1799646677 instance=ExtResource("3_jokyh")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Button3" index="0" unique_id=1794125656]
+text = "结束"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+
+[editable path="VBoxContainer/Button"]
+[editable path="VBoxContainer/Button2"]
+[editable path="VBoxContainer/Button3"]

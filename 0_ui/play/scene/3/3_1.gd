@@ -2,7 +2,6 @@ extends Control
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse_left"):
-		print("get l")
 		if Global.can_touch:
 			var rect:Rect2=%ColorRect.get_rect()
 			if rect.has_point(get_global_mouse_position()):

@@ -167,12 +167,17 @@ text = "RCXⅧ8622049"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Name2" type="Label" parent="." unique_id=452464389]
+[node name="Name2" type="Label" parent="." unique_id=918668316]
 layout_mode = 0
 offset_left = 314.0
 offset_top = 1183.0
 offset_right = 614.0
 offset_bottom = 1283.0
+theme_override_colors/font_color = Color(0.28235295, 0.7921569, 0.9137255, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.85490197, 0.7254902, 1)
+theme_override_colors/font_outline_color = Color(0.39215687, 0.39215687, 0.39215687, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 62
 text = "破虚"
 horizontal_alignment = 1

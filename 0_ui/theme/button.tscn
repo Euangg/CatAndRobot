@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dis5lscxvkj70"]
+
+[ext_resource type="Texture2D" uid="uid://taoy5q4c6v5n" path="res://0_ui/theme/button.tres" id="1_ytgad"]
+[ext_resource type="Script" uid="uid://dlit851nfs8kr" path="res://0_ui/theme/button.gd" id="2_qvklc"]
+
+[node name="Button" type="TextureButton" unique_id=1436608779]
+offset_right = 253.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_ytgad")
+script = ExtResource("2_qvklc")
+
+[node name="Label" type="Label" parent="." unique_id=1794125656]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.39215687, 0.39215687, 0.39215687, 1)
+theme_override_colors/font_shadow_color = Color(0.7254902, 0.7372549, 0.47058824, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 60
+text = "啊手动阀"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

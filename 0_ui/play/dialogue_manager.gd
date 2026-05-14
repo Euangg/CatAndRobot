@@ -19,27 +19,30 @@ const SFX_枪声 = preload("uid://3eplp0slljbh")
 const SFX_拧脖 = preload("uid://bcrxiq7umawlh")
 const SFX_提示 = preload("uid://c2hl7i0hay3eh")
 
-const SCENE_BLACK = preload("uid://08mpfdx7m2ro")
-const SCENE_WHITE = preload("uid://dv832rwp2uneh")
-const SCENE_1_1 = preload("uid://blexl0gay5k0q")
-const SCENE_1_2 = preload("uid://wj7no8vi0wru")
-const SCENE_1_3 = preload("uid://vwbhbyb8qt5a")
-const SCENE_2_1 = preload("uid://epdigjtk6bum")
-const SCENE_2_2 = preload("uid://bo1w76iqsl66y")
-const SCENE_2_3 = preload("uid://gf1domc3hphm")
-const SCENE_3_1 = preload("uid://d3k8trol6pf0r")
-const SCENE_3_2 = preload("uid://cy8tl0na3nwdh")
 
-const SCENE_4_1 = preload("uid://cc4bf7ha1jge5")
-const SCENE_5_1 = preload("uid://ul8b5cb6oqid")
-const SCENE_5_2 = preload("uid://bu2fmx76uvarc")
-const SCENE_5_3 = preload("uid://b3ykrcenxaihl")
-const SCENE_5_4 = preload("uid://0uah44f1tq06")
-const SCENE_6_1 = preload("uid://d0pk5cdhmb3fu")
-
-func switch_back_scene(new_scene:PackedScene):
+var dict_scene={
+	"黑屏幕":preload("uid://08mpfdx7m2ro"),
+	"白屏幕":preload("uid://dv832rwp2uneh"),
+	"场景1_1":preload("uid://blexl0gay5k0q"),
+	"场景1_2":preload("uid://wj7no8vi0wru"),
+	"场景1_3":preload("uid://vwbhbyb8qt5a"),
+	"场景2_1":preload("uid://epdigjtk6bum"),
+	"场景2_2":preload("uid://bo1w76iqsl66y"),
+	"场景2_3":preload("uid://gf1domc3hphm"),
+	"场景3_1":preload("uid://d3k8trol6pf0r"),
+	"场景3_2":preload("uid://cy8tl0na3nwdh"),
+	"场景4_1":preload("uid://cc4bf7ha1jge5"),
+	"场景5_1":preload("uid://ul8b5cb6oqid"),
+	"场景5_2":preload("uid://bu2fmx76uvarc"),
+	"场景5_3":preload("uid://b3ykrcenxaihl"),
+	"场景5_4":preload("uid://0uah44f1tq06"),
+	"场景6_1":preload("uid://d0pk5cdhmb3fu"),
+}
+var str_current_scene="黑屏幕"
+func switch_back_scene(str_scene:String):
 	for s in %NodeScene.get_children():s.queue_free()
-	%NodeScene.add_child(new_scene.instantiate())
+	%NodeScene.add_child(dict_scene[str_scene].instantiate())
+	str_current_scene=str_scene
 
 func hide_all_characters():
 	art_cat.hide()
@@ -286,25 +289,7 @@ func line_to_curtain(line:String):
 			if full_cmd=="":break
 			var cmd_parameter:PackedStringArray=full_cmd.split("-")
 			match cmd_parameter[0]:
-				"场景":
-					match cmd_parameter[1]:
-						"黑屏幕":dia.process.push_back(func():switch_back_scene(SCENE_BLACK))
-						"白屏幕":dia.process.push_back(func():switch_back_scene(SCENE_WHITE))
-						"场景1_1":dia.process.push_back(func():switch_back_scene(SCENE_1_1))
-						"场景1_2":dia.process.push_back(func():switch_back_scene(SCENE_1_2))
-						"场景1_3":dia.process.push_back(func():switch_back_scene(SCENE_1_3))
-						"场景2_1":dia.process.push_back(func():switch_back_scene(SCENE_2_1))
-						"场景2_2":dia.process.push_back(func():switch_back_scene(SCENE_2_2))
-						"场景2_3":dia.process.push_back(func():switch_back_scene(SCENE_2_3))
-						"场景3_1":dia.process.push_back(func():switch_back_scene(SCENE_3_1))
-						"场景3_2":dia.process.push_back(func():switch_back_scene(SCENE_3_2))
-						"场景4_1":dia.process.push_back(func():switch_back_scene(SCENE_4_1))
-						"场景5_1":dia.process.push_back(func():switch_back_scene(SCENE_5_1))
-						"场景5_2":dia.process.push_back(func():switch_back_scene(SCENE_5_2))
-						"场景5_3":dia.process.push_back(func():switch_back_scene(SCENE_5_3))
-						"场景5_4":dia.process.push_back(func():switch_back_scene(SCENE_5_4))
-						"场景6_1":dia.process.push_back(func():switch_back_scene(SCENE_6_1))
-						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
+				"场景":dia.process.push_back(func():switch_back_scene(cmd_parameter[1]))
 				"音效":
 					match cmd_parameter[1]:
 						"猫_担忧":dia.process.push_back(func():Global.play_sfx(SFX_猫_担忧))
@@ -324,8 +309,8 @@ func line_to_curtain(line:String):
 					match cmd_parameter[1]:
 						"1":
 							dia.process.push_back(func():
-								if tech==1:switch_back_scene(SCENE_2_2)
-								else:switch_back_scene(SCENE_2_3)
+								if tech==1:switch_back_scene("场景_2_2")
+								else:switch_back_scene("场景_2_3")
 								)
 						"2":
 							dia.process.push_back(func():
@@ -392,7 +377,12 @@ func change_art_fade(str_name:String,str_face:String,str_dec:String):
 		old_c.queue_free())
 
 func _ready() -> void:
-	switch_script("5_1")
+	if Global.is_load:load_data_2()
+	else:
+		sat=0
+		tech=0
+		Global.is_touch=0
+		switch_script("main")
 	
 	if Global.is_limit_exist:
 		if Global.is_touch==2:switch_script("5_1")
@@ -411,6 +401,8 @@ func _ready() -> void:
 	load_next_curtain()
 	
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("esc"):Global.switch_scene(Global.UI_THEME)
+	
 	if Input.is_action_just_pressed("mouse_right"):
 		sat=1
 		Global.is_touch=1
@@ -421,6 +413,8 @@ func _physics_process(delta: float) -> void:
 			randf_range(-intensity_shake,intensity_shake)
 		)
 	else:position=Vector2.ZERO
+
+func _exit_tree() -> void:save_data_2()
 
 var intensity_shake:float=5
 var is_shake:bool=false
@@ -450,7 +444,11 @@ func copy_png():
 
 func save_data_2():
 	var data={
+		"str_current_scene":str_current_scene,
 		"str_current_script":str_current_script,
+		"order_curtain":order_curtain,
+		"sat":sat,
+		"tech":tech,
 	}
 	var json=JSON.stringify(data)
 	var file:FileAccess=FileAccess.open("user://data_2.sav",FileAccess.WRITE)
@@ -458,4 +456,17 @@ func save_data_2():
 	file.close()
 
 func load_data_2():
-	pass
+	var file=FileAccess.open("user://data_2.sav",FileAccess.READ)
+	if file:
+		var string=file.get_as_text()
+		var data=JSON.parse_string(string)
+		str_current_scene=data["str_current_scene"]
+		str_current_script=data["str_current_script"]
+		switch_back_scene(str_current_scene)
+		switch_script(str_current_script)
+		order_curtain=data["order_curtain"]
+		
+		sat=data["sat"]
+		tech=data["tech"]
+		
+		load_current_curtain()

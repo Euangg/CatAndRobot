@@ -16,6 +16,7 @@ script = ExtResource("1_q8ac3")
 metadata/_custom_type_script = "uid://cti4o0cfu0v8d"
 
 [node name="TextureRect3" type="TextureRect" parent="." unique_id=1774560831]
+modulate = Color(1, 1, 1, 0.6862745)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +27,7 @@ texture = ExtResource("3_dbsp1")
 expand_mode = 1
 
 [node name="TextureRect4" type="TextureRect" parent="." unique_id=1531774139]
+modulate = Color(1, 1, 1, 0.8235294)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,10 +50,16 @@ expand_mode = 1
 [node name="Label" type="Label" parent="." unique_id=463962414]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 269.0
-offset_top = 868.0
-offset_right = 1652.0
-offset_bottom = 1013.0
+offset_left = 470.0
+offset_top = 890.0
+offset_right = 1300.0
+offset_bottom = 1040.0
+theme_override_colors/font_color = Color(0.39215687, 0.39215687, 0.39215687, 1)
+theme_override_colors/font_outline_color = Color(0.9607843, 1, 0.98039216, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 34
+text = "[正在检查日志：任务执行期间检测到目标生物处于危险
+状态，默认程序中断，启动目标生物应急保护预案]"
 
 [node name="Name" type="Label" parent="." unique_id=432863825]
 layout_mode = 0
@@ -59,6 +67,11 @@ offset_left = 314.0
 offset_top = 774.0
 offset_right = 614.0
 offset_bottom = 853.0
+theme_override_colors/font_color = Color(0.3137255, 0.3137255, 0.3137255, 1)
+theme_override_colors/font_shadow_color = Color(0.9607843, 1, 0.98039216, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 42
 text = "RCXⅧ8622049"
 horizontal_alignment = 1

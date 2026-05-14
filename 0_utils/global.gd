@@ -1,9 +1,14 @@
 extends Node
 
+const UI_PLAY = ("uid://dotgf2t16s2ob")
+const UI_THEME = ("uid://bcyorsasvmhej")
+func switch_scene(path_scene:String):
+	get_tree().call_deferred("change_scene_to_file",path_scene)
+
+var is_load:bool=false
 var exe_path:String
 var is_limit_exist:bool=true
 func _ready() -> void:
-	print("global load")
 	var path_has_exe=OS.get_executable_path()
 	exe_path=path_has_exe.get_base_dir()
 	load_data_1()
