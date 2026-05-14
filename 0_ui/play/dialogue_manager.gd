@@ -392,7 +392,7 @@ func change_art_fade(str_name:String,str_face:String,str_dec:String):
 		old_c.queue_free())
 
 func _ready() -> void:
-	switch_script("test")
+	switch_script("5_1")
 	
 	if Global.is_limit_exist:
 		if Global.is_touch==2:switch_script("5_1")
@@ -403,7 +403,7 @@ func _ready() -> void:
 			switch_script("7_1")
 			OS.create_process(Global.exe_path.path_join("MessageBox2.exe"),[])
 			copy_png()
-			
+			get_tree().quit()
 		else:
 			OS.create_process(Global.exe_path.path_join("MessageBox.exe"),[])
 			get_tree().quit()
