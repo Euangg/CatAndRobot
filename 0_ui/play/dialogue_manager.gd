@@ -18,6 +18,7 @@ const SFX_机关 = preload("uid://b32d7v3ajbofo")
 const SFX_枪声 = preload("uid://3eplp0slljbh")
 const SFX_拧脖 = preload("uid://bcrxiq7umawlh")
 const SFX_提示 = preload("uid://c2hl7i0hay3eh")
+const SFX_选项 = preload("uid://bk3dmde12cgqj")
 
 
 var dict_scene={
@@ -475,7 +476,10 @@ func load_data_2():
 		
 func _on_button_menu_pressed() -> void:
 	Global.switch_scene(Global.UI_THEME)
+	Global.play_sfx(SFX_选项)
 func _on_button_acc_pressed() -> void:
 	Global.acc=!Global.acc
+	Global.play_sfx(SFX_选项)
 func _on_button_auto_pressed() -> void:
 	Global.auto_play=!Global.auto_play
+	Global.play_sfx(SFX_选项)
