@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhg8si8mm6epe"]
 
 [ext_resource type="Script" uid="uid://cn0ojn4tjwaf7" path="res://0_dbox/selection/selection.gd" id="1_bkx5v"]
+[ext_resource type="Texture2D" uid="uid://b0emynaxp67fl" path="res://0_dbox/selection/new_atlas_texture.tres" id="2_nrtrd"]
 
 [node name="Selection" type="Control" unique_id=1899068364]
 layout_mode = 3
@@ -34,17 +35,43 @@ offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1127919663]
+[node name="Button" type="TextureButton" parent="VBoxContainer" unique_id=31524801]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "asdfa撒旦反对"
+texture_normal = ExtResource("2_nrtrd")
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1386559513]
+[node name="Label" type="Label" parent="VBoxContainer/Button" unique_id=1242894156]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "阿迪斯发的发大水"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="TextureButton" parent="VBoxContainer" unique_id=1451798193]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "啊手动阀打发"
+texture_normal = ExtResource("2_nrtrd")
+
+[node name="Label2" type="Label" parent="VBoxContainer/Button2" unique_id=772233943]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "asda啊发射点发"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

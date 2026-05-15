@@ -8,8 +8,8 @@ var str_selection_1:String=""
 var str_selection_2:String=""
 
 func _ready() -> void:
-	%Button.set_text(str_selection_1)
-	%Button2.set_text(str_selection_2)
+	%Label.text=(str_selection_1)
+	%Label2.text=(str_selection_2)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse_left"):

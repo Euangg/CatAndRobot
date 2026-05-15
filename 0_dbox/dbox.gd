@@ -43,11 +43,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if Global.is_stopped:return
 	if order_char <arr_text[order_text].length():#播放中
-		if Global.auto_play:is_stopped=false
+		if Global.auto_play or Global.acc:is_stopped=false
 		if is_stopped:return
+		
 		
 		if Global.auto_play:amount_characters_should_shown+=Global.speed_auto_play*delta
 		else:amount_characters_should_shown+=num_characters_per_second*delta
+		if Global.acc:amount_characters_should_shown=arr_text[order_text].length()
 		var diff:int=amount_characters_should_shown-order_char
 		if diff>0:Global.play_sfx(sfx_words.pick_random())
 		
@@ -72,6 +74,7 @@ func _physics_process(delta: float) -> void:
 			on_one_line_end()
 	else:#本段播放完毕
 		if Global.auto_play and (!Global.auto_play_temp_pause):try_load_next_line()
+		if Global.acc:try_load_next_line()
 
 func try_load_next_line():
 	if order_text<arr_text.size()-1:

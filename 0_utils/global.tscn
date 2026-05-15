@@ -11,4 +11,9 @@ unique_name_in_owner = true
 [node name="Sfx" type="Node" parent="." unique_id=2145980563]
 unique_name_in_owner = true
 
+[node name="TimerTempPause" type="Timer" parent="." unique_id=1298386161]
+unique_name_in_owner = true
+one_shot = true
+
 [connection signal="finished" from="Bgm" to="." method="_on_bgm_finished"]
+[connection signal="timeout" from="TimerTempPause" to="." method="_on_timer_temp_pause_timeout"]

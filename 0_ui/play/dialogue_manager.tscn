@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://0uah44f1tq06" path="res://0_ui/play/scene/5/5-4.tscn" id="2_srvfy"]
 [ext_resource type="PackedScene" uid="uid://bweff716n4ujh" path="res://0_character/cat/cat.tscn" id="3_srvfy"]
 [ext_resource type="PackedScene" uid="uid://b86t4jc8p013d" path="res://0_character/robot/robot.tscn" id="4_nah2v"]
+[ext_resource type="Texture2D" uid="uid://c62ax8iq6av5s" path="res://0_ui/play/右上菜单按钮.png" id="5_nah2v"]
+[ext_resource type="Texture2D" uid="uid://e1g7oeaieb4f" path="res://0_ui/play/快进按钮.png" id="6_0t0cj"]
+[ext_resource type="Texture2D" uid="uid://b45wlm11rktev" path="res://0_ui/play/播放按钮.png" id="7_vltgv"]
 
 [sub_resource type="Animation" id="Animation_f62sa"]
 resource_name = "event_1"
@@ -43,6 +46,26 @@ tracks/0/keys = {
 _data = {
 &"event_1": SubResource("Animation_f62sa")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vltgv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqkw3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mw6lc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eeh5j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76cvl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ih5g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yb8ch"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4l6ur"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_miyi5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y8yk7"]
 
 [node name="DialogueManager" type="Control" unique_id=1650605372]
 layout_mode = 3
@@ -92,4 +115,55 @@ one_shot = true
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_srvfy")
 
+[node name="右上菜单按钮" type="Sprite2D" parent="." unique_id=1939933684]
+texture = ExtResource("5_nah2v")
+centered = false
+
+[node name="ButtonMenu" type="Button" parent="右上菜单按钮" unique_id=225775944]
+offset_left = 1728.0
+offset_top = 28.0
+offset_right = 1892.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vltgv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hqkw3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mw6lc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_eeh5j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_76cvl")
+text = "菜单"
+
+[node name="快进按钮" type="Sprite2D" parent="." unique_id=33216740]
+texture = ExtResource("6_0t0cj")
+centered = false
+
+[node name="ButtonAcc" type="Button" parent="快进按钮" unique_id=837875256]
+offset_left = 1832.0
+offset_top = 955.0
+offset_right = 1891.0
+offset_bottom = 1014.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1ih5g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yb8ch")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4l6ur")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_miyi5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y8yk7")
+
+[node name="播放按钮" type="Sprite2D" parent="." unique_id=1351738252]
+texture = ExtResource("7_vltgv")
+centered = false
+
+[node name="ButtonAuto" type="Button" parent="播放按钮" unique_id=339382168]
+offset_left = 1832.0
+offset_top = 880.0
+offset_right = 1891.0
+offset_bottom = 939.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1ih5g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yb8ch")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4l6ur")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_miyi5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y8yk7")
+
 [connection signal="timeout" from="TimerShake" to="." method="_on_timer_shake_timeout"]
+[connection signal="pressed" from="右上菜单按钮/ButtonMenu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="快进按钮/ButtonAcc" to="." method="_on_button_acc_pressed"]
+[connection signal="pressed" from="播放按钮/ButtonAuto" to="." method="_on_button_auto_pressed"]

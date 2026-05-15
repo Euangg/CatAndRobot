@@ -309,8 +309,8 @@ func line_to_curtain(line:String):
 					match cmd_parameter[1]:
 						"1":
 							dia.process.push_back(func():
-								if tech==1:switch_back_scene("2_2")
-								else:switch_back_scene("2_3")
+								if tech==1:switch_back_scene("场景2_2")
+								else:switch_back_scene("场景2_3")
 								)
 						"2":
 							dia.process.push_back(func():
@@ -472,3 +472,10 @@ func load_data_2():
 		
 		sat=data["sat"]
 		tech=data["tech"]
+		
+func _on_button_menu_pressed() -> void:
+	Global.switch_scene(Global.UI_THEME)
+func _on_button_acc_pressed() -> void:
+	Global.acc=!Global.acc
+func _on_button_auto_pressed() -> void:
+	Global.auto_play=!Global.auto_play

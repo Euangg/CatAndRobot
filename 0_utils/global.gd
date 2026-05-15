@@ -39,6 +39,7 @@ func play_sfx(stream:AudioStream):
 
 var is_stopped:bool=false
 var auto_play:bool=false
+var acc:bool=false
 var speed_auto_play=11
 var auto_play_temp_pause:bool=false
 func set_auto_play_temp_pause():

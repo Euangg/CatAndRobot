@@ -113,6 +113,18 @@ layout_mode = 2
 [node name="Label" parent="VBoxContainer/Button3" index="0" unique_id=1794125656]
 text = "结束"
 
+[node name="Label" type="Label" parent="." unique_id=840401947]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "v0.17"
+vertical_alignment = 2
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
