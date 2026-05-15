@@ -309,8 +309,8 @@ func line_to_curtain(line:String):
 					match cmd_parameter[1]:
 						"1":
 							dia.process.push_back(func():
-								if tech==1:switch_back_scene("场景_2_2")
-								else:switch_back_scene("场景_2_3")
+								if tech==1:switch_back_scene("2_2")
+								else:switch_back_scene("2_3")
 								)
 						"2":
 							dia.process.push_back(func():
@@ -385,7 +385,9 @@ func _ready() -> void:
 		switch_script("main")
 	
 	if Global.is_limit_exist:
-		if Global.is_touch==2:switch_script("5_1")
+		if Global.is_touch==2:
+			Global.is_touch=0
+			switch_script("5_1")
 		else:pass
 	else:
 		if Global.is_touch==2:
@@ -414,7 +416,9 @@ func _physics_process(delta: float) -> void:
 		)
 	else:position=Vector2.ZERO
 
-func _exit_tree() -> void:save_data_2()
+func _exit_tree() -> void:
+	Global.save_data_1()
+	save_data_2()
 
 var intensity_shake:float=5
 var is_shake:bool=false

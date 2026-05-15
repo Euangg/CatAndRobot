@@ -16,6 +16,11 @@ func _ready() -> void:
 	var file_name=exe_path.path_join("Limitation.exe")
 	is_limit_exist=FileAccess.file_exists(file_name)
 	print(file_name,",",is_limit_exist)
+	
+	if is_limit_exist:pass
+	else:
+		is_load=true
+		switch_scene(UI_PLAY)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("k"):OS.shell_show_in_file_manager(Global.exe_path)
