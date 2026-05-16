@@ -28,3 +28,4 @@ offset_top = 881.0
 offset_right = 1643.0
 offset_bottom = 1003.0
 theme_override_font_sizes/font_size = 42
+autowrap_mode = 2

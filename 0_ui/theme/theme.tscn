@@ -127,6 +127,7 @@ layout_mode = 2
 text = "结束"
 
 [node name="Label" type="Label" parent="." unique_id=840401947]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -135,7 +136,7 @@ offset_top = -23.0
 offset_right = 40.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
-text = "v0.17"
+text = "vx.xx"
 vertical_alignment = 2
 
 [node name="TextStart" type="TextureRect" parent="." unique_id=1929014214]
@@ -187,9 +188,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_fiwcc")
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 843.0
-offset_top = 546.0
+offset_top = 543.0
 offset_right = 1076.0
-offset_bottom = 641.0
+offset_bottom = 644.0
 pivot_offset = Vector2(128, 122)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dv3mi")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0df1")
@@ -199,10 +200,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_fiwcc")
 
 [node name="ButtonQuit" type="Button" parent="." unique_id=176957764]
 layout_mode = 0
-offset_left = 843.0
-offset_top = 698.0
-offset_right = 1076.0
-offset_bottom = 793.0
+offset_left = 807.0
+offset_top = 688.0
+offset_right = 1112.0
+offset_bottom = 803.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dv3mi")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0df1")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_qoeny")

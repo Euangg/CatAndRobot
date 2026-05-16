@@ -402,11 +402,11 @@ func _ready() -> void:
 		if Global.is_touch==2:
 			Global.is_touch=0
 			switch_script("7_1")
-			OS.create_process(Global.exe_path.path_join("MessageBox2.exe"),[])
+			OS.create_process(Global.exe_path.path_join("MessageBox.exe"),["2"])
 			copy_png()
 			get_tree().quit()
 		else:
-			OS.create_process(Global.exe_path.path_join("MessageBox.exe"),[])
+			OS.create_process(Global.exe_path.path_join("MessageBox.exe"),["1"])
 			get_tree().quit()
 	
 	load_next_curtain()

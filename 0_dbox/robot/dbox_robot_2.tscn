@@ -60,9 +60,8 @@ theme_override_colors/font_outline_color = Color(1, 0.7019608, 0.9019608, 1)
 theme_override_constants/outline_size = 1
 theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 34
-text = "[正在检查日志：任务执行期间检测到目标生物处于危险
-状态，默认程序中断，启动目标生物应急保护预案]adsfadfad"
-autowrap_mode = 2
+text = "[正在检查日志：任务执行期间检测到目标生物处于危险撒打算多发多发 啊但是发射点发射点发射点发大撒发射点发射点发大撒发射点法啊手动阀手动阀啊手动阀手动阀啊手动阀啊手动阀啊手动阀啊手动阀阿松大"
+autowrap_mode = 1
 
 [node name="Name" type="Label" parent="." unique_id=432863825]
 layout_mode = 0

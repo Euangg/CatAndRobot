@@ -14,6 +14,9 @@ func _ready() -> void:
 	exe_path=path_has_exe.get_base_dir()
 	load_data_1()
 	#
+	#OS.shell_show_in_file_manager(Global.exe_path)
+	#OS.create_process(Global.exe_path.path_join("MessageBox.exe"),["1"])
+	
 	var file_name=exe_path.path_join("Limitation.exe")
 	is_limit_exist=FileAccess.file_exists(file_name)
 	print(file_name,",",is_limit_exist)

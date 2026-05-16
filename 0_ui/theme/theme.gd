@@ -1,6 +1,7 @@
 extends Control
 
 func _ready() -> void:
+	%Label.text=ProjectSettings.get_setting("application/config/version","vx.xx")
 	if FileAccess.file_exists("user://data_2.sav"):pass
 	else:
 		%ButtonLoad.disabled=true
