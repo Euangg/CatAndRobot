@@ -336,6 +336,10 @@ func line_to_curtain(line:String):
 						"3":
 							dia.process.push_back(func():
 								switch_script("5_1"))
+						"4":
+							dia.process.push_back(func():
+								Global.is_touch=2
+								print("is_touch=2"))
 						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
 				"关闭":
 					print("关闭")

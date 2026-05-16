@@ -61,7 +61,8 @@ theme_override_constants/outline_size = 1
 theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 34
 text = "[正在检查日志：任务执行期间检测到目标生物处于危险
-状态，默认程序中断，启动目标生物应急保护预案]"
+状态，默认程序中断，启动目标生物应急保护预案]adsfadfad"
+autowrap_mode = 2
 
 [node name="Name" type="Label" parent="." unique_id=432863825]
 layout_mode = 0
