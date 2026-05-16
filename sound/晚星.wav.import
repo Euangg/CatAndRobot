@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://88s55bi8uhfk"
-path="res://.godot/imported/关门.wav-04cce42dd92e10409a8ff82b1f2c8acd.sample"
+uid="uid://thapxtyskj2k"
+path="res://.godot/imported/晚星.wav-b54f09cc051a4d013395e96cf56faa87.sample"
 
 [deps]
 
-source_file="res://sound/关门.wav"
-dest_files=["res://.godot/imported/关门.wav-04cce42dd92e10409a8ff82b1f2c8acd.sample"]
+source_file="res://sound/晚星.wav"
+dest_files=["res://.godot/imported/晚星.wav-b54f09cc051a4d013395e96cf56faa87.sample"]
 
 [params]
 

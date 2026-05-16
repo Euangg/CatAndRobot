@@ -2,6 +2,7 @@ extends Node
 
 const UI_PLAY = ("uid://dotgf2t16s2ob")
 const UI_THEME = ("uid://bcyorsasvmhej")
+const UI_STAFF = ("uid://cllww1fsd31qy")
 func switch_scene(path_scene:String):
 	get_tree().call_deferred("change_scene_to_file",path_scene)
 

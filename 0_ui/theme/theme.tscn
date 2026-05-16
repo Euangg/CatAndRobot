@@ -2,9 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://dlh8r24jqgrhg" path="res://0_ui/theme/主界面.png" id="1_4euet"]
 [ext_resource type="Script" uid="uid://b0c6n0ulp3rvc" path="res://0_ui/theme/theme.gd" id="1_lgvji"]
-[ext_resource type="Texture2D" uid="uid://d2ltqyrwagkd3" path="res://0_ui/theme/主界面选项.png" id="2_jctv3"]
 [ext_resource type="PackedScene" uid="uid://dis5lscxvkj70" path="res://0_ui/theme/button.tscn" id="3_jokyh"]
 [ext_resource type="PackedScene" uid="uid://01rf5sjr66r2" path="res://0_ui/theme/star.tscn" id="3_tmm7h"]
+[ext_resource type="Texture2D" uid="uid://b7q00qibp6r3h" path="res://0_ui/theme/主界面_按钮.png" id="4_tmm7h"]
+[ext_resource type="Texture2D" uid="uid://dfi4r1xg6u2ug" path="res://0_ui/theme/主界面_文字_开始.png" id="6_dv3mi"]
+[ext_resource type="Texture2D" uid="uid://c2gtkhtuqrmp1" path="res://0_ui/theme/主界面_文字_继续.png" id="7_w0df1"]
+[ext_resource type="Texture2D" uid="uid://bhsr5rtcbejli" path="res://0_ui/theme/主界面_文字_结束.png" id="8_qoeny"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dv3mi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0df1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qoeny"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uupoo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fiwcc"]
 
 [node name="Theme" type="Control" unique_id=1136124953]
 layout_mode = 3
@@ -70,16 +83,16 @@ position = Vector2(964, 1027)
 position = Vector2(1294, 1008)
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1163610951]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_jctv3")
+texture = ExtResource("4_tmm7h")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=770196039]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -87,9 +100,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -128.0
-offset_top = -1.0
+offset_top = -120.0
 offset_right = 125.0
-offset_bottom = 379.0
+offset_bottom = 260.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 38
@@ -125,9 +138,89 @@ theme_override_font_sizes/font_size = 50
 text = "v0.17"
 vertical_alignment = 2
 
+[node name="TextStart" type="TextureRect" parent="." unique_id=1929014214]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(959, 472)
+texture = ExtResource("6_dv3mi")
+
+[node name="TextLoad" type="TextureRect" parent="." unique_id=1627414563]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 591)
+texture = ExtResource("7_w0df1")
+
+[node name="TextQuit" type="TextureRect" parent="." unique_id=959983521]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(962, 736)
+texture = ExtResource("8_qoeny")
+
+[node name="ButtonStart" type="Button" parent="." unique_id=377253126]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 427.0
+offset_right = 1076.0
+offset_bottom = 522.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dv3mi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0df1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qoeny")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uupoo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fiwcc")
+
+[node name="ButtonLoad" type="Button" parent="." unique_id=738370615]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 843.0
+offset_top = 546.0
+offset_right = 1076.0
+offset_bottom = 641.0
+pivot_offset = Vector2(128, 122)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dv3mi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0df1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qoeny")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uupoo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fiwcc")
+
+[node name="ButtonQuit" type="Button" parent="." unique_id=176957764]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 698.0
+offset_right = 1076.0
+offset_bottom = 793.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dv3mi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0df1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qoeny")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uupoo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fiwcc")
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="mouse_entered" from="ButtonStart" to="." method="_on_button_start_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonStart" to="." method="_on_button_start_mouse_exited"]
+[connection signal="pressed" from="ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="mouse_entered" from="ButtonLoad" to="." method="_on_button_load_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonLoad" to="." method="_on_button_load_mouse_exited"]
+[connection signal="pressed" from="ButtonLoad" to="." method="_on_button_load_pressed"]
+[connection signal="mouse_entered" from="ButtonQuit" to="." method="_on_button_quit_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonQuit" to="." method="_on_button_quit_mouse_exited"]
+[connection signal="pressed" from="ButtonQuit" to="." method="_on_button_quit_pressed"]
 
 [editable path="VBoxContainer/Button"]
 [editable path="VBoxContainer/Button2"]

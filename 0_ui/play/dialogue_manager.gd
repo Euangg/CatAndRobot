@@ -10,16 +10,16 @@ const SFX_猫_尖叫 = preload("uid://csswfqpgtcxr4")
 const SFX_猫_开心 = preload("uid://tf4d4x0dld8s")
 const SFX_猫_担忧 = preload("uid://b4swsvowee26j")
 const SFX_猫_满足 = preload("uid://byqs71mkvs8hd")
-const SFX_开门 = preload("uid://k7vgbmppgaix")
-const SFX_关门 = preload("uid://88s55bi8uhfk")
-const SFX_扫描 = preload("uid://bq0ch7tjexdr6")
-const SFX_警告 = preload("uid://uvdet07f53t0")
-const SFX_机关 = preload("uid://b32d7v3ajbofo")
-const SFX_枪声 = preload("uid://3eplp0slljbh")
-const SFX_拧脖 = preload("uid://bcrxiq7umawlh")
-const SFX_提示 = preload("uid://c2hl7i0hay3eh")
 const SFX_选项 = preload("uid://bk3dmde12cgqj")
-
+const SFX_关门 = preload("uid://ecs20h2eb2gp")
+const SFX_开门 = preload("uid://dr0a43gv6l5vo")
+const SFX_扫描 = preload("uid://cfar6hgwqx5yc")
+const SFX_拧脖 = preload("uid://byam6rk2hgmv4")
+const SFX_提示 = preload("uid://btqtq0fuwb3m1")
+const SFX_警告 = preload("uid://owy7rs6ell5m")
+const SFX_机关 = preload("uid://blv8n4q34y6cs")
+const SFX_枪声 = preload("uid://j4jx5aatae67")
+const SFX_晚星 = preload("uid://thapxtyskj2k")
 
 var dict_scene={
 	"黑屏幕":preload("uid://08mpfdx7m2ro"),
@@ -305,6 +305,7 @@ func line_to_curtain(line:String):
 						"枪声":dia.process.push_back(func():Global.play_sfx(SFX_枪声))
 						"拧脖":dia.process.push_back(func():Global.play_sfx(SFX_拧脖))
 						"提示":dia.process.push_back(func():Global.play_sfx(SFX_提示))
+						"晚星":dia.process.push_back(func():Global.play_sfx(SFX_晚星))
 						_:print("指令",cmd_parameter[0],"未知参数:",cmd_parameter[1])
 				"判定":
 					match cmd_parameter[1]:
@@ -340,6 +341,9 @@ func line_to_curtain(line:String):
 					print("关闭")
 					OS.shell_show_in_file_manager(Global.exe_path)
 					get_tree().quit()
+				"STAFF":dia.process.push_back(func():
+					Global.switch_scene(Global.UI_STAFF))
+					
 				_:print("未知指令:",cmd_parameter[0])
 		
 		dia.arr_text=text_offset[0].split("//")
